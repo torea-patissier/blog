@@ -12,16 +12,18 @@
 <body>
 
     <?php
-    session_start();
     // Cette variable m'aide à déterminer l'id_droits d'un utilisateur connecté et afficher la navbar 
     // en fonction de son id_droits
-    if(isset($_SESSION['id'])){
+    if (!isset($_SESSION['user'])) {
+        $id_droits = 0;
+    }else{
         $id_droits = $_SESSION['user']['id_droits'];
-
     }
 
     //J'affiche ici la navbar d'un admin 
-    if (isset($_SESSION['id']) and $id_droits == 1337) {
+
+    if ($id_droits == 1337) {
+
         echo '
     <header>
     <nav class="navbar">
@@ -31,11 +33,11 @@
         <a class="navlink" href="../blog/creer-article.php">Créer un article</a>
         <a class="navlink" href="../blog/profil.php">Profil</a>
         <a class="navlink" href="../blog/admin.php">Admin</a>
-
     </nav>
 </header>';
-    }//J'affiche ici la navar d'un modérateur
-    elseif(isset($_SESSION['id'])and $id_droits == 42) {
+    }
+    //J'affiche ici la navar d'un modérateur
+    elseif ($id_droits == 42) {
         echo '
     <header>
     <nav class="navbar">
@@ -44,11 +46,10 @@
         <a class="navlink" href="../blog/article.php">Article</a>
         <a class="navlink" href="../blog/creer-article.php">Créer un article</a>
         <a class="navlink" href="../blog/profil.php">Profil</a>
-
     </nav>
 </header>';
     } // J'affiche ici la navbar qu'un utilisateur
-    elseif (isset($_SESSION['id'])) {
+    elseif ($id_droits == 1) {
         echo '
     <header>
     <nav class="navbar">
@@ -65,14 +66,11 @@
         <a class="navlink" href="../blog/index.php">Accueil</a>
         <a class="navlink" href="../blog/articles.php">Articles</a>
         <a class="navlink" href="../blog/article.php">Article</a>
-        <a class="navlink" href="../blog/creer-article.php">Créer un article</a>
         <a class="navlink" href="../blog/inscription.php">Inscription</a>
         <a class="navlink" href="../blog/connexion.php">Connexion</a>
-
     </nav>
 </header>';
     }
 
 
     ?>
-    <main>

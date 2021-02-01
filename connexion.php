@@ -1,4 +1,5 @@
 <?php
+    session_start();
 require_once('html_partials/header.php');
 require_once('classes/connexion.class.php');
 $connect = new connexion();
@@ -26,6 +27,7 @@ $connect = new connexion();
         <form class = "preservationform" action="connexion.php" method="GET">
             <input class="submit" type="submit" name="inscription" value="S'inscrire">
         </form>
+
         </main>
 </body>
 <?php
@@ -35,5 +37,6 @@ $connect = new connexion();
 if(isset($_GET['inscription'])){
     header('location:http://localhost:8888/blog/inscription.php');
 }
+
 ?>
 </html>
