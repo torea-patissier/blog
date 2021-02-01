@@ -15,9 +15,13 @@
     session_start();
     // Cette variable m'aide à déterminer l'id_droits d'un utilisateur connecté et afficher la navbar 
     // en fonction de son id_droits
-    $id_droits = $_SESSION['user']['id_droits'];
+    if(isset($_SESSION['id'])){
+        $id_droits = $_SESSION['user']['id_droits'];
+
+    }
+
     //J'affiche ici la navbar d'un admin 
-    if ($id_droits == 1337) {
+    if (isset($_SESSION['id']) and $id_droits == 1337) {
         echo '
     <header>
     <nav class="navbar">
@@ -31,7 +35,7 @@
     </nav>
 </header>';
     }//J'affiche ici la navar d'un modérateur
-    elseif($id_droits == 42) {
+    elseif(isset($_SESSION['id'])and $id_droits == 42) {
         echo '
     <header>
     <nav class="navbar">
