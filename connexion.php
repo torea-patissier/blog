@@ -5,16 +5,6 @@ require_once('classes/connexion.class.php');
 $connect = new connexion();
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-</head>
-<body>
-    <main>
-
 <form class="formulaire" action="connexion.php" method="POST">
             <h1>Connexion</h1><br />
             <label>Identifiants</label><br />
