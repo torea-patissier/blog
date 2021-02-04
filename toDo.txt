@@ -67,8 +67,7 @@ ARTICLE.PHP:
 
 - PERMET DE VOIR UN ARTICLE
 - AFFICHE LES COMMENTAIRES
-- ON PEUT COMMENTER // Il faut utiliser l’argument GET “id” afin de sélectionner l’article souhaité.
-
+- // ON PEUT COMMENTER // Il faut utiliser l’argument GET “id” afin de sélectionner l’article souhaité.
 
 
 ARTICLES.PHP:

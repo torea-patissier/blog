@@ -9,7 +9,7 @@ class Articles extends bdd
         $stmt = $con->prepare("SELECT * FROM categories  INNER JOIN articles ON articles.id_categorie = categories.id ");// Requete
         $stmt->execute();//J'éxécute la requete
         $result = $stmt->fetchAll();//Result devient un tableau des valeurs obtenues
-        var_dump($result);
+        // var_dump($result);
         foreach($result as $key){
             // var_dump($key);
             $nom = $key['nom'];

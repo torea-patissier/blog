@@ -5,7 +5,6 @@ require_once('html_partials/header.php');
 require_once('classes/profil.class.php');
 $user = new modprofil();
 $user->profil();
-var_dump($_SESSION['user']);
 ?>
 
 <form action="profil.php" method="POST">

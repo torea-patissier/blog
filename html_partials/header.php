@@ -28,17 +28,15 @@
     <nav class="navbar">
         <a class="navlink" href="../blog/index.php">Accueil</a>
         <a class="navlink" href="../blog/articles.php">Articles</a>
-        <a class="navlink" href="../blog/article.php">Article</a>
         <a class="navlink" href="../blog/creer-article.php">Créer un article</a>
         <a class="navlink" href="../blog/profil.php">Profil</a>
         <a class="navlink" href="../blog/admin.php">Admin</a>
-        <div class="dropdown-menu">
-  <ul>
-    <li><a href="#" >Item 1</a></li>
-    <li><a href="#" >Item 2</a></li>
-    <li><a href="#" >Last Item</a></li>
-  </ul>
-</div>
+<ul>
+<li><a></a>Catégories</li>
+<li><a></a>Rugby</li>
+<li><a></a>Foot</li>
+<li><a></a>Golf</li>
+</ul>
     </nav>
 </header>';
     }
@@ -49,11 +47,18 @@
     <nav class="navbar">
         <a class="navlink" href="../blog/index.php">Accueil</a>
         <a class="navlink" href="../blog/articles.php">Articles</a>
-        <a class="navlink" href="../blog/article.php">Article</a>
         <a class="navlink" href="../blog/creer-article.php">Créer un article</a>
         <a class="navlink" href="../blog/profil.php">Profil</a>
         <form class="preservationform" action="profil.php" method="GET">
         <input class="deco" type="submit" name="deco" value="Se déconnecter">
+        <div class="menu-area">
+<ul>
+<li><a></a>Catégories</li>
+<li><a></a>Rugby</li>
+<li><a></a>Foot</li>
+<li><a></a>Golf</li>
+</ul>
+</div>
     </nav>
 </header>';
     } // J'affiche ici la navbar d'un utilisateur
@@ -63,11 +68,18 @@
     <nav class="navbar">
         <a class="navlink" href="../blog/index.php">Accueil</a>
         <a class="navlink" href="../blog/articles.php">Articles</a>
-        <a class="navlink" href="../blog/article.php">Article</a>
         <a class="navlink" href="../blog/profil.php">Profil</a>
         <form class="preservationform" action="profil.php" method="GET">
         <input class="deco" type="submit" name="deco" value="Se déconnecter">
     </nav>
+    <div class="menu-area">
+<ul>
+<li><a></a>Catégories</li>
+<li><a></a>Rugby</li>
+<li><a></a>Foot</li>
+<li><a></a>Golf</li>
+</ul>
+</div>
 </header>';
     } else {
         //J'affiche ici la navbar d'une personne qui n'est pas connecté 
@@ -75,7 +87,6 @@
     <nav class="navbar">
         <a class="navlink" href="../blog/index.php">Accueil</a>
         <a class="navlink" href="../blog/articles.php">Articles</a>
-        <a class="navlink" href="../blog/article.php">Article</a>
         <a class="navlink" href="../blog/inscription.php">Inscription</a>
         <a class="navlink" href="../blog/connexion.php">Connexion</a>
     </nav>
