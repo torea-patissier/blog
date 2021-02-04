@@ -1,7 +1,5 @@
 <?php
-require_once('Controllers/Router.php');
-
-$router = new Router();
-$router->routeReq();
-
+    session_start();
+require_once('html_partials/header.php');
+echo'index';
 ?>

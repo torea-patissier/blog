@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include "../Classes/connexion.class.php"; 
+require_once('../html_partials/header.php');
 
 $CONNECT = new connexion;
 ?>

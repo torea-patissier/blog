@@ -3,7 +3,17 @@
 require_once("bdd.class.php");
 
 class LastArticle extends bdd
-{
+{   
+    function getUsersInfo()
+    {
+        $con = $this->connectDb(); // Connexion Db 
+        $stmt = $con->prepare("SELECT id, username FROM utilisateurs ");// Requete
+        $stmt->execute();//J'éxécute la requete
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
+
+        $_SESSION["usersInfo"] = $result;
+    }
+
     function showSelectedArticle()
     {   
         $get = $_GET["id"];
@@ -12,7 +22,7 @@ class LastArticle extends bdd
         $stmt->execute();//J'éxécute la requete
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
 
-            var_dump($result);
+            $article = $result;
     }
 
     function showComments()
@@ -27,6 +37,7 @@ class LastArticle extends bdd
 
             $commentaire = $key['commentaire'];
             $dateCommentaire = $key['date'];
+            echo "$dateCommentaire" . "<br />" . "$commentaire";
 
         }
         

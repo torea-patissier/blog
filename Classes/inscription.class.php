@@ -8,6 +8,7 @@ class inscription extends bdd {
                 //Connexion Db
                 $con = $this->connectDb();
                 //HTMLSPECHARS
+                $userName = htmlspecialchars($_POST['username']);
                 $login = htmlspecialchars($_POST['login']);
                 $password = htmlspecialchars($_POST['password']);
                 $confpassword = htmlspecialchars($_POST['confpassword']);
@@ -35,8 +36,8 @@ class inscription extends bdd {
                 if($testpwd < 4){
                     echo '<br />' . 'Rappel : Votre mot de passe doit contenir au minimum 7 caractères, incluant une Majuscule, un chifre et un caractère spécial.';
                 }else { // Si oui on créer le compte en Db
-                    $newuser = $con->prepare("INSERT INTO utilisateurs (login, password, email,id_droits) VALUES ('$login','$hash','$email','$chiffre')");
-                    $newuser->execute(array($login, $hash, $email));
+                    $newuser = $con->prepare("INSERT INTO utilisateurs (username, login, password, email, id_droits) VALUES ('$userName','$login','$hash','$email','$chiffre')");
+                    $newuser->execute();
                     return $newuser;
                     Header ('Location: hhtps://localhost/blog/Connexion/connexion.php');
                 }
