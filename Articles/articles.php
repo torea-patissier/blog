@@ -103,5 +103,5 @@ $articles = $query->fetchAll(PDO::FETCH_ASSOC);
             </section>
         </div>
     </main>
-</body>
+<?=require_once('../html_partials/footer.php');?>
 </html>

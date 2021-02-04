@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 require_once("../html_partials/header.php");
 include "../Classes/creer-article.class.php";
 $ARTICLE = new Article;
-
 ?>
+
 <br />
 <form action="creer-article.php" method="POST">
 <label>Quelle est la catégorie de votre article ?</label><br /><br />
@@ -15,7 +15,7 @@ $ARTICLE = new Article;
    <option valeur="99">Autre</option>
 </select>
 <p>Veuillez rédiger votre article</p>
-<input type="text" width="" height="" name="newArticle" style="width:600px; padding-bottom:300px;"><br />
+<input type="text" width="" height="" name="newarticle" style="width:600px; padding-bottom:300px;"><br />
 <input type="submit" name="publier">
 </form>
 

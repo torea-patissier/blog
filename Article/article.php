@@ -2,7 +2,9 @@
 
 require_once('../html_partials/header.php');
 include "../Classes/article.class.php";
-if (!isset($_SESSION["usersInfo"])) $_SESSION["usersInfo"] = array();
+if (!isset($_SESSION["usersInfo"])) $_SESSION["usersInfo"] = "";
+if (!isset($_SESSION["articleInfo"])) $_SESSION["articleInfo"] = "";
+
 
 $ARTICLE = new LastArticle;
 
@@ -17,14 +19,14 @@ $ARTICLE->getUsersInfo();
    <title>Article</title>
 </head>
 <body>
+<?=$ARTICLE->showSelectedArticle();?>
+
 <?php
-if(isset($_GET["id"])){
-   $ARTICLE->showSelectedArticle();
-}
+var_dump($_SESSION["articleInfo"]);
+var_dump($_SESSION["usersInfo"]);
+
 ?>
 
-<?=$ARTICLE->showComments();?>
-<?=var_dump($_SESSION["usersInfo"]);?>
 <form action="" method="POST">
 <input type="text" name="CommentSection">
 </form>
