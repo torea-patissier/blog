@@ -20,9 +20,6 @@ class Articles extends bdd
             echo 'Catégorie : ' . $nom . '<br />'. '<br />';
             echo '<td> le: '.$date.'<br />';
             echo '<td>'.'<a href="article.php?id='.$id_article.'">' . $article .  '</a>' .'<br />'.'<br />';
-
-
-
         }
     }
 }

@@ -16,7 +16,16 @@ $ADMIN = new Admin();
 
 // $ADMIN->AdminGestion();
 
-$ADMIN->AdminGestion();
 
 
-?>  
+?> 
+
+<form action="admin.php" method="GET">
+<input type="submit" name="afficher" value="Afficher les catégories">
+</form> 
+
+<?php
+if(isset($_GET['afficher'])){
+    $ADMIN->AdminGestion();
+}
+?>

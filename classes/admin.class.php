@@ -14,7 +14,7 @@ class Admin extends bdd{
         $result2 = $stmt2->fetchAll();
 
         echo'<pre>';
-        // var_dump($result2);
+        // var_dump($result);
         echo'</pre>';
 
         foreach($result2 as $value){
@@ -24,24 +24,17 @@ class Admin extends bdd{
                 if($val['nom'] == $value['nom']){
                     echo $val['date'].'<br/>';
                     echo $val['article'].'<br/>';
+                    echo $val[0].'<br/>';
+                    $idget = $val[0];
                     echo'
-                    <form action = "" method="GET">
-<input type="submit" name="modifier" value="Modifier">
-<input type="submit" name="supprimer" value="Supprimer">
-</form>'.'<br/>'.'<br/>'.'<br/>';
+                    <li>
+                    <a href="modifier_article.php?id='.$idget.'">Modifier |</a>
+                    <a href="supprimer.php?id='.$idget.'">Supprimer</a>
+                    </li><br/><br/>';
 
                 }
-            }
-
+            } 
         }
-
-        if(isset($_GET['modifier'])){
-            echo'ok';
-        }
-
-         }
-}
+    }
+} 
 ?>
-
-
-

@@ -42,9 +42,6 @@ class modprofil extends bdd{
                 $sql = $con->prepare($requete);
                 $sql->execute();
                 echo '<br/> Email modifié ';
-
-
-
             }
         }
     }
