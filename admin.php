@@ -14,34 +14,28 @@ exit();
 
 $ADMIN = new Admin();
 
-// $ADMIN->AdminGestion();
-
-
-
 ?> 
 
-<form action="admin.php" method="GET">
+<form action="admin.php" method="POST">
+<input type="submit" name="cacher" value="Retour">
 <input type="submit" name="afficher" value="Afficher les articles">
-<input type="submit" name="cacher" value="Cacher les articles">
-<input type="submit" name="ajouter" value="Ajouter une catégorie">
+<input type="submit" name="ajouter" value="Gérer les catégories">
+<input type="submit" name="user" value="Gérer les utilisateurs">
+
 </form> 
 
 <?php
-if(isset($_GET['afficher'])){
-    $ADMIN->AdminGestion();
-    if(isset($_GET['cacher'])){
-        header('location:http://localhost:8888/blog/admin.php');
-    }
+if(isset($_POST['afficher'])){
+    $ADMIN->ShowArticles();
 }
-
-if(isset($_GET['ajouter'])){
-    ?>
-            <form action="admin.php" method="POST"><br /><br />
-            <label>Catégorie</label><br /><br />
-            <input type="text" name="nom"><br /><br />
-            <input type="submit" name="envoyer" value="Envoyer">
-        </form>
-    <?php
+if(isset($_POST['cacher'])){
+    header('location:http://localhost:8888/blog/admin.php');
+}
+if(isset($_POST['ajouter'])){
+    $ADMIN->ShowSuppCategories();
     $ADMIN->AddCategorie();
+}
+if(isset($_POST['user'])){
+    $ADMIN->ShowIdDroits();
 }
 ?>

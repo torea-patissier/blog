@@ -45,6 +45,11 @@ class modprofil extends bdd{
             }
         }
     }
+
+    public function Deconnexion(){
+        session_destroy();
+        header("location:http://localhost:8888/blog/connexion.php");
+    }
 }
 
 ?>

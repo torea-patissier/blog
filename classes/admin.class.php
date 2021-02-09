@@ -3,8 +3,8 @@ require_once('bdd.php');
 
 class Admin extends bdd
 {
-    //Function pour l'admin
-    public function AdminGestion()
+    //Fonction pour l'admin
+    public function ShowArticles()
     {
         $con = $this->connectDb();
         $stmt = $con->prepare('SELECT * FROM articles INNER JOIN categories ON  articles.id_categorie = categories.id ORDER BY categories.id');
@@ -13,20 +13,18 @@ class Admin extends bdd
         $stmt2->execute();
         $result = $stmt->fetchAll();
         $result2 = $stmt2->fetchAll();
-
-        echo '<pre>';
-        // var_dump($result);
-        echo '</pre>';
-
+        // La première boucle permet d'afficher les catégories
         foreach ($result2 as $value) {
 
             echo '<br/> Catégorie : ' . $value['nom'] . '<br/>' . '<br/>';
             foreach ($result as $val) {
+                // La deuxième permet d'afficher les articles de la catégorie en question avec les infos 
                 if ($val['nom'] == $value['nom']) {
                     echo $val['date'] . '<br/>';
                     echo $val['article'] . '<br/>';
                     echo $val[0] . '<br/>';
                     $idget = $val[0];
+                    // Ici on peut modifier ou supprimer l'article + redirection vers une autre page
                     echo '
                     <li>
                     <a href="modifier_article.php?id=' . $idget . '">Modifier |</a>
@@ -36,16 +34,85 @@ class Admin extends bdd
             }
         }
     }
-
+    // Fonction pour ajouter une catégorie 
     public function AddCategorie()
+
     {
- if (isset($_POST['envoyer']) && !empty($_POST['nom'])) {
-            $nom = htmlspecialchars($_POST['nom']);
+?>
+        <!-- Formulaire d'ajout de catégorie -->
+        <form action="admin.php" method="POST"><br /><br />
+            <label>Ajouter une catégorie ici :</label><br /><br />
+            <input type="text" name="texte"><br /><br />
+            <input type="submit" name="ajouter" value="Ajouter">
+        </form>
+<?php
+        // Si on appuie sur le bouton ajouter
+        if (isset($_POST['ajouter']) && !empty($_POST['texte'])) {
             $con = $this->connectDb();
-            $stmt = $con->prepare(" INSERT INTO categories (`nom`) VALUES ('$nom') ");
-            $stmt->execute();
-            header('location:http://localhost:8888/blog/admin.php');
+            $nom = htmlspecialchars($_POST['texte']);
+
+            $req = $con->prepare(" SELECT * FROM categories WHERE nom = ?");
+            $req->execute([$nom]);
+            $checkCategorie = $req->fetch();
+            if ($checkCategorie) {
+                // La catégorie déjà on revoit false et echo un message d'erreur
+                echo '<br/> Catégorie déjà existante';
+                return false;
+            } else {
+                // Sinon on ajoute la catégorie en Bdd
+                $stmt = $con->prepare(" INSERT INTO categories (nom) VALUES ('$nom') ");
+                $stmt->execute();
+            }
         }
+    }
+    // Fontcion pour afficher, modifier, supprimer une catégorie
+    public function ShowSuppCategories()
+    {
+        $con = $this->connectDb();
+        $stmt2 = $con->prepare('SELECT * FROM categories');
+        $stmt2->execute();
+        $result2 = $stmt2->fetchAll();
+        // Boucle pour afficher les catégories
+        echo  '<br/>' . '<br/>' . 'Catégories :' . '<br/>';
+        foreach ($result2 as $value) {
+            $idget = $value[0];
+
+            echo '<br/>' . $value['nom'] . '<br/>';
+            // Ici on peut modifier ou supprimer la catégorie + redirection vers une autre page
+            echo '
+            
+            <li>
+            <a href="modifier_article.php?id=' . $idget . '">Modifier |</a>
+            <a href="supprimer.php?id=' . $idget . '">Supprimer</a>
+            </li><br/><br/>';
+        }
+    }
+// Fonction pour gérer les utilisateurs en Bdd, droits, etc...
+    public function ShowIdDroits()
+    {
+       $con = $this->connectDb();
+       $stmt = $con->prepare('SELECT * FROM utilisateurs');
+       $stmt->execute();
+       $result = $stmt->fetchAll();
+
+       echo'<pre>';
+       var_dump($result);
+       echo'</pre>';
     }
 }
 ?>
+<table>
+    <thead>
+        <th>
+            
+        </th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+    </tbody>
+
+</table>

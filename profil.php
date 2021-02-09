@@ -13,5 +13,12 @@ $user->profil();
     <input type="password" name="confpass" placeholder="CONF MDP">
     <input type="email" name="email" placeholder="EMAIL">
     <input type="submit" name="modifier">
+    <input type="submit" name="deco" value="Déconnexion">
 </form>
+
+<?php
+if(isset($_POST['deco'])){
+$user->Deconnexion();
+}
+?>
 
