@@ -23,23 +23,25 @@ class LastArticle extends bdd
         $stmt->execute();//J'éxécute la requete
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
         
-        $article = $result[0]['article'];
-        $dateArticle = $result[0]['date'];
-        $idUser = $result[0]['id_utilisateur'];
-        $idArticle = $result[0]['id'];
-
+        foreach($result as $resultat){
+        $article = $resultat['article'];
+        $dateArticle = $resultat['date'];
+        $idUser = $resultat['id_utilisateur'];
+        $idArticle = $resultat['id'];
+        }
         //UNE NOUVELLE REQUETE POUR RECUPERER LES INFORMATIONS SUR L'UTILISATEUR QUI A POSTé L'ARTICLE
         $con = $this->connectDb(); // Connexion Db 
         $stmt = $con->prepare("SELECT id, username FROM utilisateurs WHERE id = '$idUser'");// Requete
         $stmt->execute();//J'éxécute la requete
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
 
-        $userNameId = $result[0]['id'];
-        $userName = $result[0]['username'];
-
+        foreach($result as $resultat){
+        $userNameId = $resultat['id'];
+        $userName = $resultat['username'];
+        }
         echo "Posté le : " . $dateArticle . "<br />";
         echo "Par : " . $userName . "<br /><br />";
-        echo $article;
+        echo $article . "<br /><br />";
 
 
     }
@@ -48,17 +50,31 @@ class LastArticle extends bdd
     {
         $get = $_GET["id"];
         $con = $this->connectDb(); // Connexion Db 
-        $stmt = $con->prepare("SELECT * FROM commentaires WHERE id_article = '$get' ");// Requete
+        $stmt = $con->prepare("SELECT * FROM commentaires WHERE id_article = '$get' ORDER BY date DESC");// Requete
         $stmt->execute();//J'éxécute la requete
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues 
-        
+
+ 
         foreach($result as $key){
 
             $commentaire = $key['commentaire'];
             $dateCommentaire = $key['date'];
-            echo "$dateCommentaire" . "<br />" . "$commentaire";
+            $commentUser = $key['id_utilisateur'];
+         
+           
+            $stmt = $con->prepare("SELECT * FROM utilisateurs WHERE id = '$commentUser'");// Requete
+            $stmt->execute();//J'éxécute la requete
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues 
+            
+            foreach($result as $resultat){
+                $username = $resultat["username"];
+            }
 
+            
+            echo "Posté le : " . $dateCommentaire . "<br />" . "Par : " . $username . "<br />" . $commentaire . "<br /><br />";
         }
+
+        
         
     }
 

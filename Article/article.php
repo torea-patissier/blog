@@ -22,9 +22,8 @@ $ARTICLE->getUsersInfo();
 <?=$ARTICLE->showSelectedArticle();?>
 
 <?php
-var_dump($_SESSION["articleInfo"]);
-var_dump($_SESSION["usersInfo"]);
 
+$ARTICLE->showComments();
 ?>
 
 <form action="" method="POST">

@@ -7,9 +7,9 @@ require_once('../html_partials/header.php');
 $ARTICLES = new Articles;
 
 ?>
-
 <?php
 
+$ARTICLES->filterCategory();
 // On détermine sur quelle page on se trouve
 if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = (int) strip_tags($_GET['page']);
@@ -79,6 +79,13 @@ $articles = $query->fetchAll(PDO::FETCH_ASSOC);
                         <th>Article</th>
                     </thead>
                     <tbody>
+                    <form action="" method="GET">
+                        <select name="filterArticle">
+                            <?=$ARTICLES->filterForm();?>
+                        </select>
+                        <input type="submit" name="Valider" value="Filtrer">
+                    </form>
+
                     <?= $ARTICLES->showArticles();?>
                     </tbody>
                 </table>

@@ -5,7 +5,8 @@ require_once("bdd.class.php");
 class Article extends bdd
 {
     function CreateArticle()
-    {
+    {    
+        
         $con = $this->connectDb(); // Connexion Db 
         $stmt = $con->prepare("SELECT * FROM articles");// Requete
         $stmt->execute();//J'éxécute la requete
