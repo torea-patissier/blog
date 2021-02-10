@@ -24,7 +24,11 @@ class Articles extends bdd
                     $date = $key['date'];
                     $article = $key['article'];
                     $id_article = $key['id'];
-                    
+                    echo "<table class='table'>
+                    <thead>
+                        <th>Date</th>
+                        <th>Article</th>
+                    </thead> <tbody>";
                     echo "<tr>";
                     echo "<td class='Date'>" . $date . "</td>" . "<br />" ;
                     echo "<td class='Article'>" . '<a href="../Article/article.php?id='.$id_article.'">' . $article . '</a>' . "</td>" . "<br />" .  "<br />";
@@ -44,7 +48,12 @@ class Articles extends bdd
                 $date = $key['date'];
                 $article = $key['article'];
                 $id_article = $key['id'];
-                
+                echo "<table class='table'>
+                <thead>
+                    <th>Catégorie</th>
+                    <th>Date</th>
+                    <th>Article</th>
+                </thead><tbody>";
                 echo "<tr>";
                 echo "<td class='Titre'>" . $nom . "</td>" . "<br />" ;
                 echo "<td class='Date'>" . $date . "</td>" . "<br />" ;
@@ -72,7 +81,7 @@ class Articles extends bdd
             $categorie = $resultat["nom"];
                 switch ($request){
                 
-                    case "Filtre Articles":
+                    case "Toutes Catégories":
                         $request = "SELECT * FROM categories INNER JOIN articles ON articles.id_categorie = categories.id";
                         $this->request = $request;
                         break;
@@ -104,6 +113,54 @@ class Articles extends bdd
         
         }
         $this->categorie = $resultat["nom"];
+    }
+
+    function getPagination($get, $articles)
+    {   
+
+
+        // On se connecte à là base de données
+        require_once('../Classes/bdd.class.php');
+
+        $con = $this->connectDb(); // Connexion Db 
+        // On détermine le nombre total d'articles
+        $sql = 'SELECT COUNT(*) AS nb_articles FROM `articles`;';
+
+        // On prépare la requête
+        $query = $con->prepare($sql);
+
+        // On exécute
+        $query->execute();
+
+        // On récupère le nombre d'articles
+        $result = $query->fetch();
+
+        $nbArticles = (int) $result['nb_articles'];
+
+        // On détermine le nombre d'articles par page
+        $parPage = 5;
+
+        // On calcule le nombre de pages total
+        $pages = ceil($nbArticles / $parPage);
+
+        // Calcul du 1er article de la page
+        $premier = ($currentPage * $parPage) - $parPage;
+
+        $sql = 'SELECT * FROM `articles` ORDER BY `date` DESC LIMIT :premier, :parpage;';
+
+        // On prépare la requête
+        $query = $con->prepare($sql);
+
+        $query->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+
+        // On exécute
+        $query->execute();
+
+        // On récupère les valeurs dans un tableau associatif
+        $articles = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
     }
 }
 
