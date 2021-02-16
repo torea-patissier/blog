@@ -38,8 +38,9 @@ class inscription extends bdd {
                 }else { // Si oui on créer le compte en Db
                     $newuser = $con->prepare("INSERT INTO utilisateurs (username, login, password, email, id_droits) VALUES ('$userName','$login','$hash','$email','$chiffre')");
                     $newuser->execute();
+                    header("Refresh: 0;url=http://localhost/blog/Connexion/connexion.php");
                     return $newuser;
-                    Header ('Location: hhtps://localhost/blog/Connexion/connexion.php');
+                    
                 }
             }
         }

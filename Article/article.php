@@ -5,10 +5,11 @@ include "../Classes/article.class.php";
 if (!isset($_SESSION["usersInfo"])) $_SESSION["usersInfo"] = "";
 if (!isset($_SESSION["articleInfo"])) $_SESSION["articleInfo"] = "";
 
+$Aid = $_SESSION["articleInfo"];
 
-$ARTICLE = new LastArticle;
+$pageArticle = new LastArticle;
 
-$ARTICLE->getUsersInfo();
+$pageArticle->getUsersInfo();
 ?>
 
 <!DOCTYPE html>
@@ -19,16 +20,29 @@ $ARTICLE->getUsersInfo();
    <title>Article</title>
 </head>
 <body>
-<?=$ARTICLE->showSelectedArticle();?>
-
 <?php
 
-$ARTICLE->showComments();
+$pageArticle->showSelectedArticle();
+
+
+
+$pageArticle->showComments();
 ?>
 
 <form action="" method="POST">
 <input type="text" name="CommentSection">
+<input type="submit" name="PublierCommentaire">
 </form>
+
+<?php 
+
+if(isset($_POST["PublierCommentaire"]) && !empty($_POST["CommentSection"])){
+   $pageArticle->publierCommentaire();
+   header("Refresh: 0;url=article.php?id=$Aid");
+}
+?>
+
+
 </body>
 </html>
 

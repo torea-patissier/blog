@@ -4,6 +4,9 @@ require_once("bdd.class.php");
 
 class LastArticle extends bdd
 {   
+
+    public $idArticle;
+
     function getUsersInfo()
     {
         $con = $this->connectDb(); // Connexion Db 
@@ -13,6 +16,7 @@ class LastArticle extends bdd
 
         $_SESSION["usersInfo"] = $result;
     }
+
 
     function showSelectedArticle()
     {   
@@ -43,7 +47,8 @@ class LastArticle extends bdd
         echo "Par : " . $userName . "<br /><br />";
         echo $article . "<br /><br />";
 
-
+        $this->idArticle = $idArticle;
+        $_SESSION["articleInfo"] = $get;
     }
 
     function showComments()
@@ -86,6 +91,18 @@ class LastArticle extends bdd
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues 
         
         $_SESSION['usersInfo'] = $result;
+    }
+
+    function publierCommentaire()
+    {   
+        $commentaire = htmlspecialchars($_POST["CommentSection"]);
+        $idArticle = $this->idArticle;
+        $date = date("D-m-y H:i:s");
+        $userId = $_SESSION["user"]["id"];
+        $con = $this->connectDb(); // Connexion Db 
+        $stmt = $con->prepare("INSERT INTO commentaires (commentaire, id_article, id_utilisateur, date) VALUES ('$commentaire', '$idArticle', '$userId', '$date')");// Requete
+        $stmt->execute();//J'éxécute la requete
+        
     }
 }
 

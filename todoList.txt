@@ -42,7 +42,6 @@ HEADER:
 - SI USER = MODERATEUR IL DOIT AVOIR ACCES A LA PAGE CREER ARTICLES
 - SI USER = ADMIN IL DOIT AVOIR ACCES A LA PAGE ADMIN
 ///OK/// 
-A REVOIR !!!<------
 
 
 
@@ -57,6 +56,8 @@ ADMIN:
 
 - (MODIF ET SUPP D'ARTICLES)
 - CREATION/MODIFICATION/SUPP DE CATEGORIES/UTILISATEUR/DROITS
+
+/////BON/////
 
 
 
@@ -81,7 +82,7 @@ ARTICLES.PHP:
 - 5 ARTICLES AUTORISE SUR LA PAGE, ENSUITE PAGINATION   //il faut utiliser l’argument GET “start”.
 - FILTRER LES ARTICLES PAR CATEGORIES //à l’aide de l’argument GET “categorie” qui utilise les id des categories.
 
-!!!!! MANQUE FILTRE !!!!!!
+////FAIT////
 
 
 

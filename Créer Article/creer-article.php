@@ -6,6 +6,7 @@ $ARTICLE = new Article;
 ?>
 
 <br />
+
 <form action="creer-article.php" method="POST">
 <label>Quelle est la catégorie de votre article ?</label><br /><br />
 <select name="category">

@@ -27,7 +27,7 @@
     <header>
     <nav class="navbar">
         <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php">Articles</a>
+        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
         <a class="navlink" href="../Article/article.php">Article</a>
         <a class="navlink" href="../Créer Article/creer-article.php">Créer un article</a>
         <a class="navlink" href="../Profil/profil.php">Profil</a>
@@ -48,7 +48,7 @@
     <header>
     <nav class="navbar">
         <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php">Articles</a>
+        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
         <a class="navlink" href="../Article/article.php">Article</a>
         <a class="navlink" href="../Créer Article/creer-article.php">Créer un article</a>
         <a class="navlink" href="../Profil/profil.php">Profil</a>
@@ -62,7 +62,7 @@
     <header>
     <nav class="navbar">
         <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php">Articles</a>
+        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
         <a class="navlink" href="../Article/article.php">Article</a>
         <a class="navlink" href="../Profil/profil.php">Profil</a>
         <form class="preservationform" action="" method="GET">
@@ -74,7 +74,7 @@
         echo '<header>
     <nav class="navbar">
         <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php">Articles</a>
+        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
         <a class="navlink" href="../Article/article.php">Article</a>
         <a class="navlink" href="../Inscription/inscription.php">Inscription</a>
         <a class="navlink" href="../Connexion/connexion.php">Connexion</a>

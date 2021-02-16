@@ -1,121 +1,69 @@
 <?php
 
-require_once("bdd.class.php");
+require_once("../Classes/bdd.class.php");
 
-class Articles extends bdd
+class pageArticles extends bdd
 {
-    public $request;
-    public $categorie;
 
-
-
-    function showArticles()
-    {   
-        if(isset($_GET["filterArticle"]) && !empty($_GET["filterArticle"])){
-            $id = $_GET["filterArticle"];
-            $con = $this->connectDb(); // Connexion Db 
-            $request = "SELECT * FROM articles WHERE id_categorie = '$id' ";
-            $stmt = $con->prepare($request);// Requete
-            $stmt->execute();//J'éxécute la requete
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
-
-            var_dump($result);
-                foreach($result as $key){
-                    $date = $key['date'];
-                    $article = $key['article'];
-                    $id_article = $key['id'];
-                    echo "<table class='table'>
-                    <thead>
-                        <th>Date</th>
-                        <th>Article</th>
-                    </thead> <tbody>";
-                    echo "<tr>";
-                    echo "<td class='Date'>" . $date . "</td>" . "<br />" ;
-                    echo "<td class='Article'>" . '<a href="../Article/article.php?id='.$id_article.'">' . $article . '</a>' . "</td>" . "<br />" .  "<br />";
-                    echo "</tr>";
-                    $this->request = $request;
-                }
-            }else{
-        
-            $con = $this->connectDb(); // Connexion Db 
-            $request = "SELECT * FROM categories INNER JOIN articles ON articles.id_categorie = categories.id ";
-            $stmt = $con->prepare($request);// Requete
-            $stmt->execute();//J'éxécute la requete
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
-
-            foreach($result as $key){
-                $nom = $key['nom'];
-                $date = $key['date'];
-                $article = $key['article'];
-                $id_article = $key['id'];
-                echo "<table class='table'>
-                <thead>
-                    <th>Catégorie</th>
-                    <th>Date</th>
-                    <th>Article</th>
-                </thead><tbody>";
-                echo "<tr>";
-                echo "<td class='Titre'>" . $nom . "</td>" . "<br />" ;
-                echo "<td class='Date'>" . $date . "</td>" . "<br />" ;
-                echo "<td class='Article'>" . '<a href="../Article/article.php?id='.$id_article.'">' . $article . '</a>' . "</td>" . "<br />" .  "<br />";
-                echo "</tr>";
-                $this->request = $request;
-            }
-        }
-    }
-        
-    
-
-    function filterCategory()
+    public function Pagination()
     {
-        $request = $this->request;
-        $categorie = $this->categorie;
-        $con = $this->connectDb(); // Connexion Db 
-        $req = "SELECT nom FROM categories";
-        $stmt = $con->prepare($req);// Requete
-        $stmt->execute();//J'éxécute la requete
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
-        
-        if(isset($_POST["Valider"])){
-            foreach($result as $resultat){
-            $categorie = $resultat["nom"];
-                switch ($request){
-                
-                    case "Toutes Catégories":
-                        $request = "SELECT * FROM categories INNER JOIN articles ON articles.id_categorie = categories.id";
-                        $this->request = $request;
-                        break;
+        //Connexion Bdd
+        $con = $this->connectDb();
+        $page = intval($_GET['page']); //conversion forcée en entier
+    //Si le nombre est invalide, on demande la première page par défaut
+    if($page <= 0){
+        $page = 1;
+    }
 
-                    case "$categorie":
-                        $request = "SELECT * FROM categories WHERE nom = '$categorie' INNER JOIN articles ON articles.id_categorie = categories.id";
-                        $this->request = $request;
-                        break;
-                    
-                }
-            }
+    $limite = 5;
+
+    $resultFoundRows = $con->query("SELECT count(id) FROM articles");
+    $nombreElementsTotal = $resultFoundRows->fetchColumn();
+    $debut = ($page - 1) * $limite;
+    // Partie "Requête"
+    //  On construit la requête, en remplaçant les valeurs par des marqueurs. Ici, on
+    //  n'a qu'une valeur, limite. On place donc un marqueur là où la valeur devrait se
+    //  trouver, sans oublier les deux points « : » 
             
-        }
+    $query = "SELECT * FROM categories INNER JOIN articles ON articles.id_categorie = categories.id ORDER BY date DESC LIMIT :limite OFFSET :debut";
+    $query = $con->prepare($query);
+    //On lie les valeurs
+    $query->bindValue('limite', $limite, PDO::PARAM_INT);
+    $query->bindValue('debut', $debut, PDO::PARAM_INT);
+    $query->execute();
+
+    //Partie Boucle
+    while($element = $query->fetch()){
+        echo ucfirst(strtolower($element['nom'])) . "<br /><br />";
+        echo $element['article'] . "<br /><br />";
+        echo $element['date'] . "<br /><br />" ;
     }
 
-    function filterForm()
-    {
-        $con = $this->connectDb(); // Connexion Db 
-        $stmt = $con->prepare("SELECT * FROM categories");// Requete
-        $stmt->execute();//J'éxécute la requete
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);//Result devient un tableau des valeurs obtenues
+?>
 
-        echo "<option value='0'>Filtrer Catégories</option>";
-        foreach($result as $resultat){
-            $filter = $resultat["nom"];
-            $idFilter = $resultat["id"];
+<?php
+    //On calcule le nombre de pages
+    $nombreDePages = ceil($nombreElementsTotal / $limite);
 
-            echo "<option value='$idFilter'>$filter</option>";
-        
-        }
-        $this->categorie = $resultat["nom"];
+    /* Si on est sur la première page, on n'a pas besoin d'afficher de lien*/
+    /* vers la précédente. On va donc ne l'afficher que si on est sur une autre*/
+    /* page que la première*/
+
+    if($page > 1):
+        ?><a href="?page=<?php echo $page - 1; ?>">Page précédente</a> 
+    <?php endif;
+
+    for($i = 1; $i <= $nombreDePages; $i++):
+        ?><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+    <?php endfor;
+
+    //Avec le nombre total de pages, on peut aussi masquer le lien vers la page sivante quand on est sur la derniere//
+    if($page < $nombreDePages):
+        ?><a href="?page=<?php echo $page + 1; ?>">Page suivante</a>
+    <?php endif;?><?php
     }
 
-    
 }
+
 
 ?>

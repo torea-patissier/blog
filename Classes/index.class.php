@@ -16,7 +16,8 @@ class Index extends bdd{
         
         foreach($result as $resultat){
             $id_article = $resultat['id'];
-            echo '<a href="Article/article.php?id='.$id_article.'">' . $resultat['article'] . '<a/>' . "<br />";
+            
+            echo '<div class="articleIndex"><a href="Article/article.php?id='.$id_article.'">' . $resultat['article'] . '<a/></div>' . "<br />";
         }
     }
 }

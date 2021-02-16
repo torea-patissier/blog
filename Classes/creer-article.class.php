@@ -10,24 +10,23 @@ class Article extends bdd
             $stmt = $con->prepare("SELECT * FROM categories");// Requete
             $stmt->execute();//J'éxécute la requete
             $result = $stmt->fetchAll();//Result devient un tableau des valeurs obtenues
-            $article = $_POST["newarticle"];//
-            $date = date("Y-m-d H:i:s");//
+            $article = addslashes(htmlspecialchars($_POST["newarticle"]));//
+            $date = date("D-m-y H:i:s");//
             $iduser = $_SESSION["user"]["id"];//Je récupère l'user id dans ma variable session
             //Je change la valeur de l'input catégories selon le choix afin de l'introduire en base de données
             
-            if(isset($_POST["category"])){
+            if(isset($_POST["category"]) && !empty($_POST["newarticle"])){
                 $selectedValue = $_POST["category"];
                 foreach($result as $resultat){
                     if($selectedValue == $resultat['id']){
                         $categorie = $resultat['nom'];
                     }
                 }
-                        
+                
+                $stmt = $con->prepare("INSERT INTO articles (`article`, `id_utilisateur`, `id_categorie`, `date`) values ('$article', '$iduser', '$selectedValue', '$date')");
+                $stmt->execute();
                     
             }
-
-            $stmt = $con->prepare("INSERT INTO articles (`article`, `id_utilisateur`, `id_categorie`, `date`) values ('$article', '$iduser', '$selectedValue', '$date')");
-            $stmt->execute();
         
     }
 
