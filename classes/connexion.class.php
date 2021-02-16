@@ -1,7 +1,7 @@
 <?php
 require_once('bdd.php');
 class connexion extends bdd{
-    //Function pour se connecter
+    //Function pour se connecter à son profil 
     public function connect()
     {
         $con = $this->connectDb(); // Connexion Db 

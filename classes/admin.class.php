@@ -40,12 +40,12 @@ class Admin extends bdd
     {
 ?>
         <!-- Formulaire d'ajout de catégorie -->
-        <form action="admin.php" method="POST"><br /><br />
+        <form action="" method="POST"><br /><br />
             <label>Ajouter une catégorie ici :</label><br /><br />
             <input type="text" name="texte"><br /><br />
             <input type="submit" name="ajouter" value="Ajouter">
         </form>
-<?php
+        <?php
         // Si on appuie sur le bouton ajouter
         if (isset($_POST['ajouter']) && !empty($_POST['texte'])) {
             $con = $this->connectDb();
@@ -82,37 +82,44 @@ class Admin extends bdd
             echo '
             
             <li>
-            <a href="modifier_article.php?id=' . $idget . '">Modifier |</a>
+            <a href="modifier_categorie.php?id=' . $idget . '">Modifier |</a>
             <a href="supprimer.php?id=' . $idget . '">Supprimer</a>
             </li><br/><br/>';
         }
     }
-// Fonction pour gérer les utilisateurs en Bdd, droits, etc...
+    // Fonction pour gérer les utilisateurs en Bdd, droits, etc...
     public function ShowIdDroits()
     {
-       $con = $this->connectDb();
-       $stmt = $con->prepare('SELECT * FROM utilisateurs');
-       $stmt->execute();
-       $result = $stmt->fetchAll();
+        $con = $this->connectDb();
+        $stmt = $con->prepare('SELECT * FROM utilisateurs');
+        $stmt->execute();
+        $result = $stmt->fetchAll();
 
-       echo'<pre>';
-       var_dump($result);
-       echo'</pre>';
+        echo '<table>' . '<thead>';
+        foreach ($result as $key => $value) {
+            if ($key == 5) {
+                break;
+            } else {
+                echo '<th>' . $key . '</th>';
+            }
+        }
+        echo '</thead>' . '<tbody>';
+        foreach ($result as $value) {
+        ?>
+            <tr>
+                <td name="id"><?php echo '<a href="modifier_utilisateur.php?id=' . $value[0] . '">' . 'Modifier' . '</a>'; ?></td>
+                <td name="id"><?php echo $value[0]; ?></td>
+                <td name="login"><?php echo $value[1]; ?></td>
+                <td name="mdp"><?php echo $value[2]; ?></td>
+                <td name="mail"><?php echo $value[3]; ?></td>
+                <td name="id_droits"><?php echo $value[4]; ?></td>
+                <td name="id"><?php echo '<a href="supprimer.php?id=' . $value[0] . '">' . 'Supprimer' . '</a>'; ?></td>
+
+            </tr>
+<?php
+        }
+        echo '</tbody>' . '</table>';
     }
 }
+
 ?>
-<table>
-    <thead>
-        <th>
-            
-        </th>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-
-        </td>
-    </tr>
-    </tbody>
-
-</table>

@@ -1,11 +1,9 @@
-<?php
-    session_start();
-require_once('html_partials/header.php');
+<?php session_start();
 
 include "classes/articles.class.php";
+require_once('html_partials/header.php');
 
-$ARTICLES = new Articles;
 
-$ARTICLES->showArticles();
-
+$Articles = new Articles;
+$Articles->Pagination();
 ?>

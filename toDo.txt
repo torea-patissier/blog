@@ -76,6 +76,6 @@ ARTICLES.PHP:
 - DU PLUS RECENT AU PLUS ANCIEN
 - 5 ARTICLES AUTORISE SUR LA PAGE, ENSUITE PAGINATION   //il faut utiliser l’argument GET “start”.
 - FILTRER LES ARTICLES PAR CATEGORIES //à l’aide de l’argument GET “categorie” qui utilise les id des categories.
-///NUNO///
+///OK///
 
 

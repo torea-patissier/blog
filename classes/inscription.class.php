@@ -8,6 +8,7 @@ class inscription extends bdd {
                 //Connexion Db
                 $con = $this->connectDb();
                 //HTMLSPECHARS
+                $userName = htmlspecialchars($_POST['username']);
                 $login = htmlspecialchars($_POST['login']);
                 $password = htmlspecialchars($_POST['password']);
                 $confpassword = htmlspecialchars($_POST['confpassword']);
@@ -18,7 +19,8 @@ class inscription extends bdd {
                 $options = ['cost' => 12,];
                 $hash = password_hash($password, PASSWORD_BCRYPT, $options);
                 //Vérifier si un login est déjà existant
-                $stmt = $con->prepare("SELECT * FROM utilisateurs WHERE login =?");
+                $requete = "SELECT * FROM utilisateurs WHERE login =?";
+                $stmt = $con->prepare($requete);
                 $stmt->execute([$login]);
                 $user = $stmt->fetch();
                 if ($user) {
@@ -28,14 +30,14 @@ class inscription extends bdd {
                     // Vérifier si les MDP sont les mêmes
                 }
                 if ([$password] != [$confpassword]) {
-                    echo '<br/> Mot de passe incorrecte';
+                    echo '<br />' . 'Les mots de passe ne correspondent pas';
                     return $password;
-
                 } 
+                
                 if($testpwd < 4){
                     echo '<br />' . 'Rappel : Votre mot de passe doit contenir au minimum 7 caractères, incluant une Majuscule, un chifre et un caractère spécial.';
                 }else { // Si oui on créer le compte en Db
-                    $newuser = $con->prepare("INSERT INTO utilisateurs (`login`, `password`, `email`,`id_droits`) VALUES ('$login','$hash','$email','$chiffre')");
+                    $newuser = $con->prepare("INSERT INTO utilisateurs (username, login, password, email, id_droits) VALUES ('$userName','$login','$hash','$email','$chiffre')");
                     $newuser->execute();
                     header('location:http://localhost:8888/blog/connexion.php');
                     return $newuser;
@@ -45,3 +47,4 @@ class inscription extends bdd {
         }
 }
 ?>
+
