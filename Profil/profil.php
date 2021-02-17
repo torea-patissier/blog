@@ -2,8 +2,8 @@
     session_start();
     include ("../classes/profil.class.php");
     require_once('../html_partials/header.php');
-    $user = new modprofil();
-    $user -> profil();
+    $pageProfil = new modprofil();
+    $pageProfil -> profil();
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,13 @@
         <input type="password" name="confpass" placeholder="Confimation mdp">
         <input type="email" name="email" placeholder="E-mail">
         <input type="submit" name="modifier">
+        <input type="submit" name="deco" value="Déconnexion">
     </form>
 
+<?php
+    if(isset($_POST['deco'])){
+        $pageProfil->Deconnexion();
+    }
+?>
 </body>
 </html>

@@ -35,7 +35,7 @@ class Articles extends bdd
         while ($element = $query->fetch()) {
             $id = $element['id'];
             echo ucfirst(strtolower($element['nom'])) . "<br /><br />";
-            echo '<a href="article.php?id='. $id . '">'.$element['article'] . '</a>'."<br /><br />";
+            echo '<a href="../Article/article.php?id='. $id . '">'.$element['article'] . '</a>'."<br /><br />";
             echo $element['date'] . "<br /><br />";
         }
 
@@ -80,7 +80,7 @@ class Articles extends bdd
                                 $idCategorie = $resultat['id'];
                                 $nom = $resultat['nom'];
                                 echo '<br />';
-                                echo '<a href="filtre_articles.php?id=' . $idCategorie . '">' . $nom . '</a>';
+                                echo '<a href="../Filtre_Articles/filtre_articles.php?id=' . $idCategorie . '">' . $nom . '</a>';
                                 echo '<br />';
 
 
@@ -91,8 +91,8 @@ class Articles extends bdd
                         {
                             $con = $this->connectDb();
                             $id = $_GET['id'];
-                            $query = "SELECT * FROM categories INNER JOIN articles  ON articles.id_categorie = categories.id  WHERE id_categorie = '$id' ";
-                            $req = $con->prepare($query);
+                            $req = $con->prepare("SELECT * FROM categories INNER JOIN articles  ON articles.id_categorie = categories.id  WHERE id_categorie = :id ");
+                            $req->bindValue('id', $id, PDO::PARAM_INT);
                             $req->execute();
                             $result = $req->fetchAll();
 
@@ -103,7 +103,48 @@ class Articles extends bdd
                                 $categorie = $key['article'];
                                 $id = $key['id'];
 
-                                echo '<a href="article.php?id='.$id. '">'. $article. '</a>'.'<br />';
+                                echo '<a href="../Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
+                                echo $date.'<br />'.'<br />';
+
+
+                            }
+                        }
+                        public function CategoryPaginationIndex()
+                        {
+                            $con = $this->connectDb();
+                            $requete = "SELECT * FROM categories";
+                            $req = $con->prepare($requete);
+                            $req->execute();
+                            $result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+                            foreach ($result as $resultat) {
+                                $idCategorie = $resultat['id'];
+                                $nom = $resultat['nom'];
+                                echo '<br />';
+                                echo '<a href="http://localhost/blog/Filtre_Articles/filtre_articles.index.php?id=' . $idCategorie . '">' . $nom . '</a>';
+                                echo '<br />';
+
+
+                            }
+                        }
+
+                        public function FiltreArticlesIndex()
+                        {
+                            $con = $this->connectDb();
+                            $id = $_GET['id'];
+                            $req = $con->prepare("SELECT * FROM categories INNER JOIN articles  ON articles.id_categorie = categories.id  WHERE id_categorie = :id ");
+                            $req->bindValue('id', $id, PDO::PARAM_INT);
+                            $req->execute();
+                            $result = $req->fetchAll();
+
+                            foreach ($result as $key) {
+                            
+                                $article = $key['article'];
+                                $date = $key['date'];
+                                $categorie = $key['article'];
+                                $id = $key['id'];
+
+                                echo '<a href="http://localhost/blog/Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
                                 echo $date.'<br />'.'<br />';
 
 

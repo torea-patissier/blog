@@ -10,8 +10,8 @@ class Article extends bdd
             $stmt = $con->prepare("SELECT * FROM categories");// Requete
             $stmt->execute();//J'éxécute la requete
             $result = $stmt->fetchAll();//Result devient un tableau des valeurs obtenues
-            $article = addslashes(htmlspecialchars($_POST["newarticle"]));//
-            $date = date("D-m-y H:i:s");//
+            $article = htmlspecialchars($_POST["newarticle"]);//
+            $date = date("Y-m-d H:i:s");//
             $iduser = $_SESSION["user"]["id"];//Je récupère l'user id dans ma variable session
             //Je change la valeur de l'input catégories selon le choix afin de l'introduire en base de données
             
@@ -23,7 +23,10 @@ class Article extends bdd
                     }
                 }
                 
-                $stmt = $con->prepare("INSERT INTO articles (`article`, `id_utilisateur`, `id_categorie`, `date`) values ('$article', '$iduser', '$selectedValue', '$date')");
+                $stmt = $con->prepare("INSERT INTO articles (`article`, `id_utilisateur`, `id_categorie`, `date`) values (:article, :idUser, :selectedValue, '$date')");
+                $stmt->bindValue('article', $article, PDO::PARAM_STR);
+                $stmt->bindValue('idUser', $iduser, PDO::PARAM_INT);
+                $stmt->bindValue('selectedValue', $selectedValue, PDO::PARAM_INT);
                 $stmt->execute();
                     
             }

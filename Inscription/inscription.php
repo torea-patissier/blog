@@ -3,7 +3,7 @@
 include "../Classes/inscription.class.php"; 
 require_once('../html_partials/header.php');
 
-$INSCRIPTION = new inscription;
+$pageInscription = new inscription;
 ?>
 
 
@@ -28,7 +28,7 @@ $INSCRIPTION = new inscription;
 <?php
 
 if(isset($_POST["inscription"])){
-    $INSCRIPTION->register();
+    $pageInscription->register();
 }
 ?>
 

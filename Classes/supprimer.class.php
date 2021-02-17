@@ -1,21 +1,24 @@
 <?php
-require_once('../Classes/bdd.class.php');
+require_once('bdd.class.php');
 
 class Delete extends bdd{
 
     public function DeleteArticle(){
         if(isset($_GET['id']) AND !empty($_GET['id'])){
             $con = $this->connectDb();
-            $sup_id = htmlspecialchars($_GET['id']);
-            $supp = $con->prepare("DELETE FROM articles WHERE id = '" . $_GET['id'] . "' ");
-            $supp2 = $con->prepare("DELETE FROM categories WHERE id = '" . $_GET['id'] . "' ");
-            $supp3 = $con->prepare("DELETE FROM utilisateurs WHERE id = '" . $_GET['id'] . "' ");
+            $sup_id = $_GET['id'];
+            $supp = $con->prepare("DELETE FROM articles WHERE id = :supId ");
+            $supp->bindValue('supId', $sup_id, PDO::PARAM_INT);
+            $supp2 = $con->prepare("DELETE FROM categories WHERE id = :supId ");
+            $supp2->bindValue('supId', $sup_id, PDO::PARAM_INT);
+            $supp3 = $con->prepare("DELETE FROM utilisateurs WHERE id = :supId ");
+            $supp3->bindValue('supId', $sup_id, PDO::PARAM_INT);
 
-            $supp->execute(array($sup_id));
-            $supp2->execute(array($sup_id));
-            $supp3->execute(array($sup_id));
+            $supp->execute();
+            $supp2->execute();
+            $supp3->execute();
 
-            header('location:http://localhost:8888/blog/admin.php');
+            header('location:http://localhost/blog/Admin/admin.php');
         
         }
         

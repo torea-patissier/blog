@@ -12,6 +12,9 @@ $pageArticle = new LastArticle;
 $pageArticle->getUsersInfo();
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,8 +26,6 @@ $pageArticle->getUsersInfo();
 <?php
 
 $pageArticle->showSelectedArticle();
-
-
 
 $pageArticle->showComments();
 ?>

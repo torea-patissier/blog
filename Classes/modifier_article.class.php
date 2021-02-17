@@ -1,5 +1,5 @@
 <?php
-require_once('../Classes/bdd.class.php');
+require_once('bdd.class.php');
 
 class ModifArticle extends bdd
 {
@@ -8,8 +8,10 @@ class ModifArticle extends bdd
     public function ShowArtToModif()
     {
         // 2 requêtes identiques pour chercher en Bdd la catégorie ou article à modifier
+        $get = $_GET['id'];
         $con = $this->connectDb();
-        $stmt = $con->prepare("SELECT * FROM articles WHERE id = '" . $_GET['id'] . "' ");
+        $stmt = $con->prepare("SELECT * FROM articles WHERE id = :get ");
+        $stmt->bindValue('get', $get, PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetchAll();
 
@@ -41,9 +43,11 @@ class ModifArticle extends bdd
             $article = htmlspecialchars($_POST['article']);
             $date = htmlspecialchars($_POST['date']);
             $getId = $_GET['id'];
-            $modif = $con->prepare("UPDATE articles SET article = '" . $article . "' WHERE id = '" . $getId . "' ");
+            $modif = $con->prepare("UPDATE articles SET article = :article WHERE id = :getId ");
+            $modif->bindValue('article', $article, PDO::PARAM_STR);
+            $modif->bindValue('getId', $getId, PDO::PARAM_INT);
             $modif->execute();
-            header('location:http://localhost:8888/blog/admin.php');
+            header('location:http://localhost/blog/Admin/admin.php');
         }
     }
 

@@ -36,7 +36,12 @@ class inscription extends bdd {
                 if($testpwd < 4){
                     echo '<br />' . 'Rappel : Votre mot de passe doit contenir au minimum 7 caractères, incluant une Majuscule, un chifre et un caractère spécial.';
                 }else { // Si oui on créer le compte en Db
-                    $newuser = $con->prepare("INSERT INTO utilisateurs (username, login, password, email, id_droits) VALUES ('$userName','$login','$hash','$email','$chiffre')");
+                    $newuser = $con->prepare("INSERT INTO utilisateurs (username, login, password, email, id_droits) VALUES (:userName, :login, :hash, :email, :chiffre)");
+                    $newuser->bindValue('userName', $userName, PDO::PARAM_STR);
+                    $newuser->bindValue('login', $login, PDO::PARAM_STR);
+                    $newuser->bindValue('hash', $hash, PDO::PARAM_STR);
+                    $newuser->bindValue('email', $email, PDO::PARAM_STR);
+                    $newuser->bindValue('chiffre', $chiffre, PDO::PARAM_INT);
                     $newuser->execute();
                     header("Refresh: 0;url=http://localhost/blog/Connexion/connexion.php");
                     return $newuser;

@@ -1,12 +1,12 @@
 <?php session_start();
-require_once('html_partials/header.php');
+require_once('html_partials/header.index.php');
 
 include "Classes/index.class.php";
-$INDEX = new Index;
+$pageIndex = new Index;
 ?>
 
 
-<?=$INDEX->showLastArticles();?>
+<?=$pageIndex->showLastArticles();?>
 
 
 <?= require_once('html_partials/footer.php'); ?>

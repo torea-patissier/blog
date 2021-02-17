@@ -1,6 +1,6 @@
 <?php 
 
-require_once("Classes/bdd.class.php");
+require_once("bdd.class.php");
 
 
 

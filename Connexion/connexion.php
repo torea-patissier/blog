@@ -3,7 +3,7 @@ session_start();
 include "../Classes/connexion.class.php"; 
 require_once('../html_partials/header.php');
 
-$CONNECT = new connexion;
+$pageConnexion = new connexion;
 ?>
 
 
@@ -25,7 +25,7 @@ $CONNECT = new connexion;
 <?php
 
 if(isset($_POST["connecter"])){
-    $CONNECT->connect();
+    $pageConnexion->connect();
 }
 ?>
 
