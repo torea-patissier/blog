@@ -7,30 +7,31 @@ $pageInscription = new inscription;
 ?>
 
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-</head>
-<body>
 
+<main class="main_inscription">
+    
+<section class="formulaire_inscription">
+<h2 class="h2_inscription">Inscription</h2>
+<p>Veuillez compléter les champs ci dessous</p>
 <form action="inscription.php" method="POST">
-    <input type="text" name="username" placeholder="Nom d'utilisateur" required>
-    <input type="text" name="login" placeholder="Login" required>
-    <input type="password" name="password" placeholder="Mot de passe" required>
-    <input type="password" name="confpassword" placeholder="Conf. Mot de passe" required>
-    <input type="email" name="email" placeholder="E-mail" required>
-    <input type="submit" name="inscription">
+    <input class="zonetxt_inscription" type="text" name="username" placeholder="Nom d'utilisateur" required><br /><br />
+    <input class="zonetxt_inscription" type="text" name="login" placeholder="Login" required><br /><br />
+    <input class="zonetxt_inscription" type="password" name="password" placeholder="Mot de passe" required><br /><br />
+    <input class="zonetxt_inscription" type="password" name="confpassword" placeholder="Conf. Mot de passe" required><br /><br />
+    <input class="zonetxt_inscription" type="email" name="email" placeholder="E-mail" required><br /><br />
+    <input class="button-inscription" type="submit" name="inscription" value="Valider">
+    <br /><br />
+    <p class="dejauncompte_inscription">Vous avez déjà un compte chez nous ? <a class="href_inscription" href="../Connexion/connexion.php">Connectez vous</a>.</p>
 </form>
-
+</section>
 <?php
-
-if(isset($_POST["inscription"])){
-    $pageInscription->register();
-}
+    if(isset($_POST["inscription"])){
+        $pageInscription->register();
+    }
 ?>
+</main>
+
+
 
 
 

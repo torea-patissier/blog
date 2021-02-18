@@ -1,43 +1,210 @@
-/* <!--HEADER---> */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
+/* <!--BODY---> */
+body{
+    font-family: 'Rubik', sans-serif;
+    color: black;
+    background-image: url(../IMG/INSCRIPTION/cream_pixels.png);
+  }
+  
+  
+  /* <!--HEADER---> */
+  
+  
+  
+  /* <!--FOOTER---> */
+  
+  
+  
+  /* <!--INDEX---> */
+  
+  
+  
+  /* <!--INSCRIPTION---> */
+  .h2_inscription{
+      padding-bottom: 0.5cm;
+      font-size: 30px;
+  }
 
+  .main_inscription{
+      background-color: whitesmoke;
+      padding-top: 1cm;
+      padding-bottom: 2cm;
+      border: 1px solid gray;
+      margin-left: 30%;
+      margin-right: 30%;
+  }
+  .zonetxt_inscription{
+    height: 0.8cm;
+    width: 5.5cm;
+    border-radius: 0.2em;
+    color: black;
+    font-size: 15px;
+  }
+  .formulaire_inscription{
+    text-align: center; 
+  }
+  .button-inscription{
+    width: 2.5cm;
+    height: 0.8cm;
+    border-radius: 0.5em;
+    border-block-color: transparent;
+    border-color: gray;
+    background-color: lightgray;
+    color: whitesmoke;
+    font-size: 17px;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+  }
+  .dejauncompte_inscription{
+    font-size: 20px;
+  }
+  .href_inscription{
+    color: red;
+    text-decoration-line: none;
+    text-decoration-color: blue;
+  }
+  .erreur_inscription{
+      font-size: 20px;
+      color: red;
+      text-shadow: 1px 1px 1px black;
+      text-align: center;
+  }
+  
+  
+  /* <!--CONNEXION---> */
+.h2_connexion{
+    padding-bottom: 0.5cm;
+    font-size: 30px;
+}
 
-/* <!--FOOTER---> */
+.main_connexion{
+    background-color: whitesmoke;
+    padding-top: 1cm;
+    padding-bottom: 2cm;
+    border: 1px solid gray;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.zonetxt_connexion{
+  height: 0.8cm;
+  width: 5.5cm;
+  border-radius: 0.2em;
+  color: black;
+  font-size: 15px;
+}
+.formulaire_connexion{
+  text-align: center; 
+}
+.button-connexion{
+  width: 2.5cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.dejauncompte_connexion{
+  font-size: 20px;
+}
+.href_connexion{
+  color: red;
+  text-decoration-line: none;
+  text-decoration-color: blue;
+}
+.erreur_connexion{
+    font-size: 20px;
+    color: red;
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+}
+  
+  
+  /* <!--PROFIL---> */
+  .h2_profil{
+    padding-bottom: 0.5cm;
+    font-size: 30px;
+}
 
-
-
-/* <!--INDEX---> */
-
-
-
-/* <!--INSCRIPTION---> */
-
-
-
-/* <!--CONNEXION---> */
-
-
-
-/* <!--PROFIL---> */
-
-
-
-/* <!--ADMIN---> */
-
-
-
-
-/* <!--CREER ARTICLE---> */
-
-
-
-/* <!--ARTICLE---> */
-
-
-
-/* <!--ARTICLES---> */
-
-
-
-
-
+.main_profil{
+    background-color: whitesmoke;
+    padding-top: 1cm;
+    padding-bottom: 2cm;
+    border: 1px solid gray;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.zonetxt_profil{
+  height: 0.8cm;
+  width: 5.5cm;
+  border-radius: 0.2em;
+  color: black;
+  font-size: 15px;
+}
+.formulaire_profil{
+  text-align: center; 
+}
+.button-profil{
+  width: 2.5cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.button-profil2{
+    width: 3cm;
+    height: 0.8cm;
+    border-radius: 0.5em;
+    border-block-color: transparent;
+    border-color: gray;
+    background-color: lightgray;
+    color: whitesmoke;
+    font-size: 17px;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+  }
+.dejauncompte_profil{
+  font-size: 20px;
+}
+.href_profil{
+  color: red;
+  text-decoration-line: none;
+  text-decoration-color: blue;
+}
+.erreur_profil{
+    font-size: 20px;
+    color: red;
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+}
+  
+  
+  /* <!--ADMIN---> */
+  
+  
+  
+  
+  /* <!--CREER ARTICLE---> */
+  
+  
+  
+  /* <!--ARTICLE---> */
+  
+  
+  
+  /* <!--ARTICLES---> */
+  
+  
+  
+  
+  
+  

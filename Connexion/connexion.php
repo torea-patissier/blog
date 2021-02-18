@@ -6,28 +6,24 @@ require_once('../html_partials/header.php');
 $pageConnexion = new connexion;
 ?>
 
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-</head>
-<body>
-
+<main class="main_connexion">
+<section class="formulaire_connexion">
+<h2 class="h2_connexion">Connexion</h2>
+<p>Veuillez indiquer vos identifiants pour vous connecter</p>
 <form action="connexion.php" method="POST">
-    <input type="text" name="login" required>
-    <input type="password" name="password" required>
-    <input type="submit" name="connecter">
+    <input class="zonetxt_connexion" type="text" name="login" required><br /><br />
+    <input class="zonetxt_connexion" type="password" name="password" required><br /><br />
+    <input class="button-connexion" type="submit" name="connecter">
+    <p class="dejauncompte_connexion">Vous n'avez pas de compte chez nous ? <a class="href_connexion" href="../Inscription/inscription.php">Inscrivez vous</a>.</p>
 </form>
-
+</section>
 <?php
-
-if(isset($_POST["connecter"])){
-    $pageConnexion->connect();
-}
+    if(isset($_POST["connecter"])){
+        $pageConnexion->connect();
+    }
 ?>
+</main>
+
 
 
 

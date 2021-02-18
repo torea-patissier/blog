@@ -24,17 +24,17 @@ class inscription extends bdd {
                 $user = $stmt->fetch();
                 if ($user) {
                     // Si il existe déjà echo message d'erreur
-                    echo '<br/> Identifiant déjà existant';
+                    echo '<br/> <p class="erreur_inscription">Identifiant déjà existant.</p>';
                     return $user;
                     // Vérifier si les MDP sont les mêmes
                 }
                 if ([$password] != [$confpassword]) {
-                    echo '<br />' . 'Les mots de passe ne correspondent pas';
+                    echo '<br />' . '<p class="erreur_inscription">Les mots de passe ne correspondent pas.</p>';
                     return $password;
                 } 
                 
                 if($testpwd < 4){
-                    echo '<br />' . 'Rappel : Votre mot de passe doit contenir au minimum 7 caractères, incluant une Majuscule, un chifre et un caractère spécial.';
+                    echo '<br />' . '<p class="erreur_inscription">Rappel : Votre mot de passe doit contenir au minimum 7 caractères, incluant une Majuscule, un chifre et un caractère spécial.</p>';
                 }else { // Si oui on créer le compte en Db
                     $newuser = $con->prepare("INSERT INTO utilisateurs (username, login, password, email, id_droits) VALUES (:userName, :login, :hash, :email, :chiffre)");
                     $newuser->bindValue('userName', $userName, PDO::PARAM_STR);
