@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../CSS/wholeWebSite.css" rel="stylesheet">
+    <link href="CSS/wholeWebSite.css" rel="stylesheet">
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <title>BLOG</title>
 </head>
@@ -12,7 +12,7 @@
 <body>
 
     <?php
-    require_once('../Classes/articles.class.php');
+    require_once('Classes/articles.class.php');
     $categorie = new Articles;
     // Cette variable m'aide à déterminer l'id_droits d'un utilisateur connecté et afficher la navbar 
     // en fonction de son id_droits
@@ -27,11 +27,11 @@
         ?>
         <header>
         <nav class="navbar">
-            <a class="navlink" href="../index.php">Accueil</a>
-            <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-            <a class="navlink" href="../Créer Article/creer-article.php">Créer un article</a>
-            <a class="navlink" href="../Profil/profil.php">Profil</a>
-            <a class="navlink" href="../Admin/admin.php">Admin</a>
+            <a class="navlink" href="index.php">Accueil</a>
+            <a class="navlink" href="Articles/articles.php?page=1">Articles</a>
+            <a class="navlink" href="Créer Article/creer-article.php">Créer un article</a>
+            <a class="navlink" href="Profil/profil.php">Profil</a>
+            <a class="navlink" href="Admin/admin.php">Admin</a>
             <div id="menu">
             <ul>
                 <li>
@@ -51,10 +51,10 @@
         ?>
         <header>
         <nav class="navbar">
-            <a class="navlink" href="../index.php">Accueil</a>
-            <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-            <a class="navlink" href="../Créer Article/creer-article.php">Créer un article</a>
-            <a class="navlink" href="../Profil/profil.php">Profil</a>
+            <a class="navlink" href="index.php">Accueil</a>
+            <a class="navlink" href="Articles/articles.php?page=1">Articles</a>
+            <a class="navlink" href="Créer Article/creer-article.php">Créer un article</a>
+            <a class="navlink" href="Profil/profil.php">Profil</a>
     
             <div id="menu">
             <ul>
@@ -74,9 +74,9 @@
         ?>
         <header>
         <nav class="navbar">
-            <a class="navlink" href="../index.php">Accueil</a>
-            <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-            <a class="navlink" href="../Profil/profil.php">Profil</a>
+            <a class="navlink" href="index.php">Accueil</a>
+            <a class="navlink" href="Articles/articles.php?page=1">Articles</a>
+            <a class="navlink" href="Profil/profil.php">Profil</a>
     
             <div id="menu">
             <ul>
@@ -96,10 +96,10 @@
         ?>
     <header>
     <nav class="navbar">
-        <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-        <a class="navlink" href="../Inscription/inscription.php">Inscription</a>
-        <a class="navlink" href="../Connexion/connexion.php">Connexion</a>
+        <a class="navlink" href="index.php">Accueil</a>
+        <a class="navlink" href="Articles/articles.php?page=1">Articles</a>
+        <a class="navlink" href="Inscription/inscription.php">Inscription</a>
+        <a class="navlink" href="Connexion/connexion.php">Connexion</a>
 
         <div id="menu">
         <ul>

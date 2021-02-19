@@ -1,15 +1,16 @@
 <?php
 session_start();
-require_once("html_partials/header.php");
-include "classes/creer-article.class.php";
-$ARTICLE = new Article;
+require_once("../html_partials/header.php");
+include "../Classes/creer-article.class.php";
+$pageCreate = new Article;
 ?>
 
 <br />
+
 <form action="creer-article.php" method="POST">
 <label>Quelle est la catégorie de votre article ?</label><br /><br />
 <select name="category">
-<?=$ARTICLE->selectCategory();?>
+<?=$pageCreate->selectCategory();?>
 </select>
 <br /><br />
 
@@ -26,7 +27,6 @@ Père Tounelard, raconte nous une histoire..
 
 
 if(isset($_POST["publier"]) && !empty($_POST["newarticle"])){
-$ARTICLE->CreateArticle();
+    $pageCreate->CreateArticle();
 
 }
-?>

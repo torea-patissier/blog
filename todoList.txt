@@ -26,11 +26,11 @@ Si connexion réussis, l'utilisateur peut modifier ses infos perso:
 
 
 
-INDEX:
+INDEX: ->!!!!!!!!!!!!!!!!!!!!!!!!!!!<--
 
 - CONTIENT LES 3 DERNIERS ARTICLES EN BAS DE PAGE
 - LIEN VERS LES PAGES ARTICLES
-///OK///
+!!!!!!!!!!!!!!! CASI BON !!!!!!!!!!!!!!!!
 
 
 HEADER:
@@ -41,19 +41,23 @@ HEADER:
 - SINON PAGE PROFIL ET UNE PERMETTANT DE SE DECO
 - SI USER = MODERATEUR IL DOIT AVOIR ACCES A LA PAGE CREER ARTICLES
 - SI USER = ADMIN IL DOIT AVOIR ACCES A LA PAGE ADMIN
+///OK/// 
 
 
 
 FOOTER:
 
 - CONTIENT ACCES AUX DIFFERENTES PAGES
-///OK///
+!!!!A FINIR!!!!<-------
+
 
 
 ADMIN:
 
-- (MODIF ET SUPP D'ARTICLES)/////OK/////
+- (MODIF ET SUPP D'ARTICLES)
 - CREATION/MODIFICATION/SUPP DE CATEGORIES/UTILISATEUR/DROITS
+
+/////BON/////
 
 
 
@@ -67,7 +71,8 @@ ARTICLE.PHP:
 
 - PERMET DE VOIR UN ARTICLE
 - AFFICHE LES COMMENTAIRES
-- // ON PEUT COMMENTER // Il faut utiliser l’argument GET “id” afin de sélectionner l’article souhaité.
+- ON PEUT COMMENTER // Il faut utiliser l’argument GET “id” afin de sélectionner l’article souhaité.
+VVVVVVVVVVVVVVVVVVVVVVVV FAIT VVVVVVVVVVVVVVVVVVVVVVVV
 
 
 ARTICLES.PHP:
@@ -76,6 +81,12 @@ ARTICLES.PHP:
 - DU PLUS RECENT AU PLUS ANCIEN
 - 5 ARTICLES AUTORISE SUR LA PAGE, ENSUITE PAGINATION   //il faut utiliser l’argument GET “start”.
 - FILTRER LES ARTICLES PAR CATEGORIES //à l’aide de l’argument GET “categorie” qui utilise les id des categories.
-///OK///
+
+////FAIT////
 
 
+
+
+
+
+ASTRA/ELEMENTOR/WHOCOMMERCE

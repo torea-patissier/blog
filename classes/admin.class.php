@@ -1,5 +1,5 @@
 <?php
-require_once('bdd.php');
+require_once('bdd.class.php');
 
 class Admin extends bdd
 {
@@ -16,19 +16,18 @@ class Admin extends bdd
         // La première boucle permet d'afficher les catégories
         foreach ($result2 as $value) {
 
-            echo '<br/> Catégorie : ' . $value['nom'] . '<br/>' . '<br/>';
+            echo '<br/> Catégorie : ' . ucfirst(strtolower($value['nom'])) . '<br/>' . '<br/>';
             foreach ($result as $val) {
                 // La deuxième permet d'afficher les articles de la catégorie en question avec les infos 
                 if ($val['nom'] == $value['nom']) {
                     echo $val['date'] . '<br/>';
                     echo $val['article'] . '<br/>';
-                    echo $val[0] . '<br/>';
                     $idget = $val[0];
                     // Ici on peut modifier ou supprimer l'article + redirection vers une autre page
                     echo '
                     <li>
-                    <a href="modifier_article.php?id=' . $idget . '">Modifier |</a>
-                    <a href="supprimer.php?id=' . $idget . '">Supprimer</a>
+                    <a href="../Modifier_Article/modifier_article.php?id=' . $idget . '">Modifier |</a>
+                    <a href="../Supprimer/supprimer.php?id=' . $idget . '">Supprimer</a>
                     </li><br/><br/>';
                 }
             }
@@ -60,8 +59,10 @@ class Admin extends bdd
                 return false;
             } else {
                 // Sinon on ajoute la catégorie en Bdd
-                $stmt = $con->prepare(" INSERT INTO categories (nom) VALUES ('$nom') ");
+                $stmt = $con->prepare(" INSERT INTO categories (nom) VALUES (:nom) ");
+                $stmt->bindValue('nom', $nom, PDO::PARAM_STR);
                 $stmt->execute();
+                header("Refresh: 0;url=admin.php");
             }
         }
     }
@@ -82,8 +83,8 @@ class Admin extends bdd
             echo '
             
             <li>
-            <a href="modifier_categorie.php?id=' . $idget . '">Modifier |</a>
-            <a href="supprimer.php?id=' . $idget . '">Supprimer</a>
+            <a href="../Modifier_Catégorie/modifier_categorie.php?id=' . $idget . '">Modifier |</a>
+            <a href="../Supprimer/supprimer.php?id=' . $idget . '">Supprimer</a>
             </li><br/><br/>';
         }
     }
@@ -107,13 +108,14 @@ class Admin extends bdd
         foreach ($result as $value) {
         ?>
             <tr>
-                <td name="id"><?php echo '<a href="modifier_utilisateur.php?id=' . $value[0] . '">' . 'Modifier' . '</a>'; ?></td>
+                <td name="id"><?php echo '<a href="../Modifier_Utilisateur/modifier_utilisateur.php?id=' . $value[0] . '">' . 'Modifier' . '</a>'; ?></td>
                 <td name="id"><?php echo $value[0]; ?></td>
                 <td name="login"><?php echo $value[1]; ?></td>
-                <td name="mdp"><?php echo $value[2]; ?></td>
-                <td name="mail"><?php echo $value[3]; ?></td>
-                <td name="id_droits"><?php echo $value[4]; ?></td>
-                <td name="id"><?php echo '<a href="supprimer.php?id=' . $value[0] . '">' . 'Supprimer' . '</a>'; ?></td>
+                <td name="username"><?php echo $value[2]; ?></td>
+                <td name="mdp"><?php echo $value[3]; ?></td>
+                <td name="email"><?php echo $value[4]; ?></td>
+                <td name="id_droits"><?php echo $value[5]; ?></td>
+                <td name="id"><?php echo '<a href="../Supprimer/supprimer.php?id=' . $value[0] . '">' . 'Supprimer' . '</a>'; ?></td>
 
             </tr>
 <?php

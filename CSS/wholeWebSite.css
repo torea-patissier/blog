@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap');
+body{
+padding: 0;
+margin:0;
+font-family: 'Quicksand', sans-serif; justify-content: space-around;
+}/* <!--HEADER---> */
+nav{
+    display: flex;
+    font-family: 'Quicksand', sans-serif; justify-content: space-around;
+    background-color: green;
+    height: 80px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+nav a{
+    margin: 2%;
+    font-size: xx-large;
+}
+
+nav a:hover{
+    color:whitesmoke;
+}
+
+#menu{
+    margin-top: 1%;
+}
+
+#menu li{
+    list-style-type: none;
+    float: right;
+    position: relative;
+}
+
+#menu ul li a{
+    display: block;
+    text-align: center ;
+    width: 150px;
+    height: 30px;
+}
+
+#menu ul ul {
+    position: absolute;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul{
+    visibility: visible;
+}
+
+
+/* <!--FOOTER---> */
+
+
+
+/* <!--INDEX---> */
+
+
+
+/* <!--INSCRIPTION---> */
+
+
+
+/* <!--CONNEXION---> */
+
+
+
+/* <!--PROFIL---> */
+
+
+
+/* <!--ADMIN---> */
+
+
+
+
+/* <!--CREER ARTICLE---> */
+
+
+
+/* <!--ARTICLE---> */
+/* L48 ArtC*/
+.borderArticle{
+
+}
+/* L80 ArtC*/
+.borderCommentaire{
+
+}
+/* L28 Art*/
+.buttonCommentaireArticle {
+	background-color:#80808025;
+	border-radius:26px;
+	border:1px solid #d1cfd1;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:18px;
+	padding:3px 20px;
+	text-decoration:none;
+}
+.buttonCommentaireArticle:hover {
+	background-color:#d1cfd1;
+}
+.buttonCommentaireArticle:active {
+	position:relative;
+	top:1px;
+}
+
+/* <!--ARTICLES---> */
+.paginationArticles, .borderArticle{
+    border-style: groove;
+    text-align: center;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    margin: 20px;
+    background-color: rgba(128, 128, 128, 0.068);
+    -webkit-box-shadow: -1px 0px 12px 4px rgba(0, 0, 0, 0.322); 
+    box-shadow: -1px 0px 12px 4px rgba(0, 0, 0, 0.253);
+     margin-right: 5%;
+     margin-left: 5%;
+
+}
+.ArticlesCategorie{
+    padding-left: 10%;
+    padding-top: 3%;
+    font-size: x-large;
+}
+
+
+
+
+

@@ -1,6 +1,6 @@
 <?php
 
-require_once("bdd.php");
+require_once("bdd.class.php");
 
 class Articles extends bdd
 {
@@ -34,13 +34,12 @@ class Articles extends bdd
         //Partie Boucle
         while ($element = $query->fetch()) {
             $id = $element['id'];
-            echo ucfirst(strtolower($element['nom'])) . "<br /><br />";
-            echo '<a href="article.php?id='. $id . '">'.$element['article'] . '</a>'."<br /><br />";
-            echo $element['date'] . "<br /><br />";
+            echo '<div class=" ArticlesCategorie">'.ucfirst(strtolower($element['nom'])) . "</div><br /><br />";
+            echo '<div class=" paginationArticles"><a href="../Article/article.php?id='. $id . '">'.$element['article'] . '</a>'."<br /><br />";
+            echo $element['date'] . "<br /><br /></div>";
+            echo'<br />';
         }
-
 ?>
-
         <?php
         //On calcule le nombre de pages
         $nombreDePages = ceil($nombreElementsTotal / $limite);
@@ -80,7 +79,7 @@ class Articles extends bdd
                                 $idCategorie = $resultat['id'];
                                 $nom = $resultat['nom'];
                                 echo '<br />';
-                                echo '<a href="filtre_articles.php?id=' . $idCategorie . '">' . $nom . '</a>';
+                                echo '<li><a href="../Filtre_Articles/filtre_articles.php?id=' . $idCategorie . '">' . $nom . '</a></li>';
                                 echo '<br />';
 
 
@@ -91,8 +90,8 @@ class Articles extends bdd
                         {
                             $con = $this->connectDb();
                             $id = $_GET['id'];
-                            $query = "SELECT * FROM categories INNER JOIN articles  ON articles.id_categorie = categories.id  WHERE id_categorie = '$id' ";
-                            $req = $con->prepare($query);
+                            $req = $con->prepare("SELECT * FROM categories INNER JOIN articles  ON articles.id_categorie = categories.id  WHERE id_categorie = :id ");
+                            $req->bindValue('id', $id, PDO::PARAM_INT);
                             $req->execute();
                             $result = $req->fetchAll();
 
@@ -103,7 +102,48 @@ class Articles extends bdd
                                 $categorie = $key['article'];
                                 $id = $key['id'];
 
-                                echo '<a href="article.php?id='.$id. '">'. $article. '</a>'.'<br />';
+                                echo '<a href="../Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
+                                echo $date.'<br />'.'<br />';
+
+
+                            }
+                        }
+                        public function CategoryPaginationIndex()
+                        {
+                            $con = $this->connectDb();
+                            $requete = "SELECT * FROM categories";
+                            $req = $con->prepare($requete);
+                            $req->execute();
+                            $result = $req->fetchAll(PDO::FETCH_ASSOC);
+
+                            foreach ($result as $resultat) {
+                                $idCategorie = $resultat['id'];
+                                $nom = $resultat['nom'];
+                                echo '<br />';
+                                echo '<li><a href="http://localhost:8888/blog/Filtre_Articles/filtre_articles.index.php?id=' . $idCategorie . '">' . $nom . '</a></li>';
+                                echo '<br />';
+
+
+                            }
+                        }
+
+                        public function FiltreArticlesIndex()
+                        {
+                            $con = $this->connectDb();
+                            $id = $_GET['id'];
+                            $req = $con->prepare("SELECT * FROM categories INNER JOIN articles  ON articles.id_categorie = categories.id  WHERE id_categorie = :id ");
+                            $req->bindValue('id', $id, PDO::PARAM_INT);
+                            $req->execute();
+                            $result = $req->fetchAll();
+
+                            foreach ($result as $key) {
+                            
+                                $article = $key['article'];
+                                $date = $key['date'];
+                                $categorie = $key['article'];
+                                $id = $key['id'];
+
+                                echo '<a href="http://localhost:8888/blog/Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
                                 echo $date.'<br />'.'<br />';
 
 
@@ -111,3 +151,4 @@ class Articles extends bdd
                         }
                     }
 ?>
+

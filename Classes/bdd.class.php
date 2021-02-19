@@ -2,8 +2,8 @@
 
 class bdd
 {
-        //Function pour se connecter à la Db 
-        public function connectDb()
+        //Function pour se connecter à la Db
+        function connectDb()
         {
             $local = 'mysql:host=localhost;dbname=blog';
             $user = 'root';
