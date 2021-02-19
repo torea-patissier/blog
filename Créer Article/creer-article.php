@@ -8,18 +8,16 @@ $pageCreate = new Article;
 <br />
 
 <form action="creer-article.php" method="POST">
+    <div class="paginationArticles1">
 <label>Quelle est la catégorie de votre article ?</label><br /><br />
-<select name="category">
+<select class="buttonCommentaireArticle" name="category">
 <?=$pageCreate->selectCategory();?>
 </select>
 <br /><br />
-
 <label for="story">Redigez votre artricle:</label><br /><br />
-
-<textarea name="newarticle" rows="10" cols="66">
-Père Tounelard, raconte nous une histoire..
-</textarea><br />
-<input type="submit" name="publier">
+<textarea name="newarticle" rows="10" cols="66"> Ecrivez votre article ici..</textarea><br />
+<input class ="buttonCommentaireArticle"type="submit" name="publier">
+</div>
 </form>
 
 

@@ -71,17 +71,12 @@ nav a:hover{
 /* <!--PROFIL---> */
 
 
-
 /* <!--ADMIN---> */
 
-
-
-
-/* <!--CREER ARTICLE---> */
-
-
+/* <!--FILTRE---> */
 
 /* <!--ARTICLE---> */
+
 /* L48 ArtC*/
 .borderArticle{
 
@@ -112,7 +107,8 @@ nav a:hover{
 }
 
 /* <!--ARTICLES---> */
-.paginationArticles, .borderArticle{
+
+.paginationArticles, .borderArticle, .borderArticle1, .paginationArticles1{
     border-style: groove;
     text-align: center;
     border-width: 1px;
@@ -121,8 +117,8 @@ nav a:hover{
     background-color: rgba(128, 128, 128, 0.068);
     -webkit-box-shadow: -1px 0px 12px 4px rgba(0, 0, 0, 0.322); 
     box-shadow: -1px 0px 12px 4px rgba(0, 0, 0, 0.253);
-     margin-right: 5%;
-     margin-left: 5%;
+     margin-right: 15%;
+     margin-left: 15%;
 
 }
 .ArticlesCategorie{
@@ -130,6 +126,19 @@ nav a:hover{
     padding-top: 3%;
     font-size: x-large;
 }
+
+/* <!--CREER ARTICLE---> */
+
+textarea{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    resize: none;
+}
+.paginationArticles1, .borderArticle1{
+    padding: 2%;
+
+}
+
+
 
 
 

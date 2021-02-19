@@ -102,8 +102,8 @@ class Articles extends bdd
                                 $categorie = $key['article'];
                                 $id = $key['id'];
 
-                                echo '<a href="../Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
-                                echo $date.'<br />'.'<br />';
+                                echo '<div class="borderArticle1"><a href="../Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
+                                echo $date.'<br />'.'<br /></div>';
 
 
                             }
@@ -143,10 +143,8 @@ class Articles extends bdd
                                 $categorie = $key['article'];
                                 $id = $key['id'];
 
-                                echo '<a href="http://localhost:8888/blog/Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
-                                echo $date.'<br />'.'<br />';
-
-
+                                echo '<div class="borderArticle1"><a href="http://localhost:8888/blog/Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
+                                echo $date.'<br />'.'<br /></div>';
                             }
                         }
                     }
