@@ -15,14 +15,16 @@ if ($id_droits != 1337) {
 $pageAdmin = new Admin();
 
 ?>
-
+<main class="main_admin">
+    <section class="formulaire_admin">
+    <h2 class="h2_admin">Gestion Admin</h2>
 <form action="" method="POST">
-    <input type="submit" name="cacher" value="Retour">
-    <input type="submit" name="afficher" value="Afficher les articles">
-    <input type="submit" name="ajouter" value="Gérer les catégories">
-    <input type="submit" name="user" value="Gérer les utilisateurs">
+    <input class="button-admin" type="submit" name="cacher" value="Retour">
+    <input class="button-admin2" type="submit" name="afficher" value="Afficher les articles">
+    <input class="button-admin2" type="submit" name="ajouter" value="Gérer les catégories">
+    <input class="button-admin2" type="submit" name="user" value="Gérer les utilisateurs">
 </form>
-
+</section>
 <?php
 if (isset($_POST['afficher'])) {
     $pageAdmin->ShowArticles();
@@ -39,3 +41,4 @@ if (isset($_POST['user'])) {
 }
 
 ?>
+</main>

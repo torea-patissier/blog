@@ -1,6 +1,7 @@
 <?php session_start();
 
 require_once('../html_partials/header.php');
+require_once('../html_partials/footer.php');
 include "../Classes/article.class.php";
 if (!isset($_SESSION["usersInfo"])) $_SESSION["usersInfo"] = "";
 if (!isset($_SESSION["articleInfo"])) $_SESSION["articleInfo"] = "";

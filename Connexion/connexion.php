@@ -2,6 +2,7 @@
 session_start();
 include "../Classes/connexion.class.php"; 
 require_once('../html_partials/header.php');
+require_once('../html_partials/footer.php');
 
 $pageConnexion = new connexion;
 ?>

@@ -5,6 +5,8 @@ body{
     font-family: 'Rubik', sans-serif;
     color: black;
     background-image: url(../IMG/INSCRIPTION/cream_pixels.png);
+    padding: 0;
+    margin: 0;
   }
   
   
@@ -13,8 +15,26 @@ body{
   
   
   /* <!--FOOTER---> */
-  
-  
+  footer{
+    background-color: rgb(36, 36, 36);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .list_footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .href_footer{
+    color: whitesmoke;
+    text-decoration: none;
+    list-style-type: disc;
+  }
+
   
   /* <!--INDEX---> */
   
@@ -186,10 +206,91 @@ body{
     text-shadow: 1px 1px 1px black;
     text-align: center;
 }
+.modif_profil
   
   
   /* <!--ADMIN---> */
-  
+  .h2_admin{
+    padding-bottom: 0.5cm;
+    font-size: 30px;
+}
+
+.main_admin{
+    background-color: whitesmoke;
+    padding-top: 1cm;
+    padding-bottom: 2cm;
+    border: 1px solid gray;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+.zonetxt_admin{
+  height: 0.8cm;
+  width: 5.5cm;
+  border-radius: 0.2em;
+  color: black;
+  font-size: 15px;
+}
+.formulaire_admin{
+  text-align: center; 
+}
+.button-admin{
+  width: 2.5cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.button-admin2{
+  width: 5cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.href_admin{
+  color: red;
+  text-decoration-line: none;
+  text-decoration-color: blue;
+  text-decoration: none;
+}
+.erreur_profil{
+    font-size: 20px;
+    color: red;
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+}
+.li_admin{
+  list-style-type: none;
+}
+.categorie_admin{
+  font-size: 20px;
+  font-style: bold;
+}
+.table_admin{
+  border: 1px solid black;
+  border-collapse: separate;
+}
+.whole_table_admin{
+  border: 1px solid black;
+  border-collapse: separate;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2cm;
+}
+.add_categorie_admin{
+  font-size: 20px;
+}
   
   
   

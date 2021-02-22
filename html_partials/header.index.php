@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../CSS/wholeWebSite.css" rel="stylesheet">
+    <link href="CSS/wholeWebSite.css" rel="stylesheet">
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <title>BLOG</title>
 </head>
