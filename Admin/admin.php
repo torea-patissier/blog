@@ -2,8 +2,8 @@
 session_start();
 
 require_once('../html_partials/header.php');
-
-require_once('../Classes/admin.class.php');
+require_once('../html_partials/footer.php');
+include "../Classes/admin.class.php";
 
 // Si l'user n'est pas un admin, on le redirige gentiment vers l'accueil
 
