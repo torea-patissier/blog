@@ -1,5 +1,5 @@
 <?php
-require_once('bdd.class.php');
+require_once('../Classes/bdd.class.php');
 class connexion extends bdd {
         // Function pour s'inscrire
     public function connect()
@@ -22,7 +22,7 @@ class connexion extends bdd {
             }
         }
         if ($login !== $logcheck and password_verify($password, $passcheck) == FALSE){
-            echo 'Identifiant ou mot de passe incorrecte';
+            echo '<p class="erreur_connexion">Identifiant ou mot de passe incorrect.</p>';
             return FALSE; 
         }     
     }

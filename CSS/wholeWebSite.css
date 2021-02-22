@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap');
+
+html{
+    height: 100%;
+
+}
+
+main{
+}
+
 body{
+    min-width: 100vh;
+    min-height: 100vh;
 padding: 0;
 margin:0;
 font-family: 'Quicksand', sans-serif; justify-content: space-around;
@@ -7,12 +18,12 @@ font-family: 'Quicksand', sans-serif; justify-content: space-around;
 nav{
     display: flex;
     font-family: 'Quicksand', sans-serif; justify-content: space-around;
-    background-color: green;
+    background-color: rgb(36, 36, 36);
     height: 80px;
 }
 
 a{
-    color: black;
+    color: grey;
     text-decoration: none;
 }
 
@@ -51,40 +62,280 @@ nav a:hover{
     visibility: visible;
 }
 
-
-/* <!--FOOTER---> */
-
+.imgbackground{
+    background-image: url('../Images/blogphoto2.jpg');
+    background-size: 100%;}
 
 
 /* <!--INDEX---> */
 
+.imgIndex {
+    max-width: 100%;
+    height: auto;
+    
+}
 
+.h2_inscription{
+    padding-bottom: 0.5cm;
+    font-size: 30px;
+}
 
-/* <!--INSCRIPTION---> */
-
+.main_inscription{
+    background-color: rgba(245, 245, 245, 0.479);
+    border: 1px solid gray;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-bottom: 5%;
+}
+.zonetxt_inscription{
+  height: 0.8cm;
+  width: 5.5cm;
+  border-radius: 0.2em;
+  color: black;
+  font-size: 15px;
+}
+.formulaire_inscription{
+  text-align: center; 
+}
+.button-inscription{
+  width: 2.5cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.dejauncompte_inscription{
+  font-size: 20px;
+}
+.href_inscription{
+  color: red;
+  text-decoration-line: none;
+  text-decoration-color: blue;
+}
+.erreur_inscription{
+    font-size: 20px;
+    color: red;
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+}
 
 
 /* <!--CONNEXION---> */
+.h2_connexion{
+  padding-bottom: 0.5cm;
+  font-size: 30px;
+}
 
+.imgBack{
+    background-image: url('../Images/blogimg.jpg');
+    background-size: 100%;
+    padding: 2%;
+}
+
+
+.main_connexion{
+  background-color: rgba(245, 245, 245, 0.479);
+  padding-bottom: 5%;
+  border: 1px solid gray;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 9%;
+}
+.zonetxt_connexion{
+height: 0.8cm;
+width: 5.5cm;
+border-radius: 0.2em;
+color: black;
+font-size: 15px;
+}
+.formulaire_connexion{
+text-align: center; 
+}
+.button-connexion{
+width: 2.5cm;
+height: 0.8cm;
+border-radius: 0.5em;
+border-block-color: transparent;
+border-color: gray;
+background-color: lightgray;
+color: whitesmoke;
+font-size: 17px;
+text-align: center;
+text-shadow: 1px 1px 1px black;
+}
+.dejauncompte_connexion{
+font-size: 20px;
+}
+.href_connexion{
+color: red;
+text-decoration-line: none;
+text-decoration-color: blue;
+}
+.erreur_connexion{
+  font-size: 20px;
+  color: red;
+  text-shadow: 1px 1px 1px black;
+  text-align: center;
+}
 
 
 /* <!--PROFIL---> */
+.h2_profil{
+  padding-bottom: 0.5cm;
+  font-size: 30px;
+}
 
+.main_profil{
+    background-color: rgba(245, 245, 245, 0.479);
+  padding-top: 1cm;
+  padding-bottom: 2cm;
+  border: 1px solid gray;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.zonetxt_profil{
+height: 0.8cm;
+width: 5.5cm;
+border-radius: 0.2em;
+color: black;
+font-size: 15px;
+}
+.formulaire_profil{
+text-align: center; 
+}
+.button-profil{
+width: 2.5cm;
+height: 0.8cm;
+border-radius: 0.5em;
+border-block-color: transparent;
+border-color: gray;
+background-color: lightgray;
+color: whitesmoke;
+font-size: 17px;
+text-align: center;
+text-shadow: 1px 1px 1px black;
+}
+.button-profil2{
+  width: 3cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.dejauncompte_profil{
+font-size: 20px;
+}
+.href_profil{
+color: red;
+text-decoration-line: none;
+text-decoration-color: blue;
+}
+.erreur_profil{
+  font-size: 20px;
+  color: red;
+  text-shadow: 1px 1px 1px black;
+  text-align: center;
+}
 
 /* <!--ADMIN---> */
+.h2_admin{
+    padding-bottom: 0.5cm;
+    font-size: 30px;
+}
+
+.main_admin{
+    background-color: whitesmoke;
+    padding-top: 1cm;
+    padding-bottom: 2cm;
+    border: 1px solid gray;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    
+}
+.zonetxt_admin{
+  height: 0.8cm;
+  width: 5.5cm;
+  border-radius: 0.2em;
+  color: black;
+  font-size: 15px;
+}
+.formulaire_admin{
+  text-align: center; 
+}
+.button-admin{
+  width: 2.5cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.button-admin2{
+  width: 5cm;
+  height: 0.8cm;
+  border-radius: 0.5em;
+  border-block-color: transparent;
+  border-color: gray;
+  background-color: lightgray;
+  color: whitesmoke;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}
+.href_admin{
+  color: red;
+  text-decoration-line: none;
+  text-decoration-color: blue;
+  text-decoration: none;
+}
+.erreur_profil{
+    font-size: 20px;
+    color: red;
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+}
+.li_admin{
+  list-style-type: none;
+}
+.categorie_admin{
+  font-size: 20px;
+  font-style: bold;
+}
+.table_admin{
+  border: 1px solid black;
+  border-collapse: separate;
+}
+.whole_table_admin{
+  border: 1px solid black;
+  border-collapse: separate;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2cm;
+}
+.add_categorie_admin{
+  font-size: 20px;
+}
 
 /* <!--FILTRE---> */
 
 /* <!--ARTICLE---> */
 
-/* L48 ArtC*/
-.borderArticle{
 
-}
-/* L80 ArtC*/
-.borderCommentaire{
-
-}
 /* L28 Art*/
 .buttonCommentaireArticle {
 	background-color:#80808025;
@@ -134,11 +385,38 @@ textarea{
     resize: none;
 }
 .paginationArticles1, .borderArticle1{
-    padding: 2%;
+    padding: 10%;
 
 }
 
+ /* <!--FOOTER---> */
+ footer{
+    background-color: rgb(36, 36, 36);
+    width: 100%;
+    height: 60px;
+    padding:2%;
+    position: absolute;
+  }
 
+  .list_footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+
+  }
+
+  .href_footer{
+    color: whitesmoke;
+    text-decoration: none;
+    list-style-type: disc;
+
+  }
+
+  .footer_admin{
+      position: relative;
+      bottom: 0;
+  }
 
 
 

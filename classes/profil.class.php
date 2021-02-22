@@ -27,7 +27,7 @@ class modprofil extends bdd{
                 $sql->bindValue('id', $id, PDO::PARAM_INT);
                 $sql->execute();
                 $_SESSION['username'] = $userName;
-                echo '<br /> Nom d\'utilisateur mis a jour';
+                echo '<br /><p class="modif_profil"> Nom d\'utilisateur modifié </p>';
             }
 
             if (isset($_POST['login']) && !empty($_POST['login'])) {
@@ -36,10 +36,10 @@ class modprofil extends bdd{
                 $sql->bindValue('id', $id, PDO::PARAM_INT);
                 $sql->execute();
                 $_SESSION['login'] = $_POST['login'];
-                echo '<br/> Login modifié ';
+                echo '<br/><p class="modif_profil"> Login modifié </p>';
             }
             if ($mdp != $conf) {
-                echo ('<br/> Mot de passe incorrecte ');
+                echo ('<br/><p class="erreur_profil"> Mot de passe incorrect </p>');
                 return false;
             } elseif (isset($_POST['password']) || isset($_POST['confpass']) && !empty($_POST['password']) && !empty($_POST['confpass'])) {
 
@@ -49,7 +49,7 @@ class modprofil extends bdd{
                 $sql->execute();
                 $_SESSION['password'] = $_POST['password'];
 
-                echo '<br/> Mot de passe modifié ';
+                echo '<br/><p class="modif_profil"> Mot de passe modifié </p>';
             }
             if(isset($_POST['email']) && !empty($_POST['email'])){
 
@@ -58,7 +58,7 @@ class modprofil extends bdd{
                 $sql->bindValue('id', $id, PDO::PARAM_INT);
                 $sql->execute();
                 $_SESSION['email'] = $_POST['email'];
-                echo '<br/> Email modifié ';
+                echo '<br/><p class="modif_profil"> Email modifié </p>';
 
 
 

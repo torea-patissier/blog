@@ -16,7 +16,7 @@ class Admin extends bdd
         // La première boucle permet d'afficher les catégories
         foreach ($result2 as $value) {
 
-            echo '<br/> Catégorie : ' . ucfirst(strtolower($value['nom'])) . '<br/>' . '<br/>';
+            echo '<br/><p class="categorie_admin">Catégorie : ' . ucfirst(strtolower($value['nom'])) . '</p><br/>' . '<br/>';
             foreach ($result as $val) {
                 // La deuxième permet d'afficher les articles de la catégorie en question avec les infos 
                 if ($val['nom'] == $value['nom']) {
@@ -25,9 +25,9 @@ class Admin extends bdd
                     $idget = $val[0];
                     // Ici on peut modifier ou supprimer l'article + redirection vers une autre page
                     echo '
-                    <li>
-                    <a href="../Modifier_Article/modifier_article.php?id=' . $idget . '">Modifier |</a>
-                    <a href="../Supprimer/supprimer.php?id=' . $idget . '">Supprimer</a>
+                    <li class="li_admin">
+                    <a class="href_admin" href="../Modifier_Article/modifier_article.php?id=' . $idget . '">Modifier |</a>
+                    <a class="href_admin" href="../Supprimer/supprimer.php?id=' . $idget . '">Supprimer</a>
                     </li><br/><br/>';
                 }
             }
@@ -40,9 +40,9 @@ class Admin extends bdd
 ?>
         <!-- Formulaire d'ajout de catégorie -->
         <form action="" method="POST"><br /><br />
-            <label>Ajouter une catégorie ici :</label><br /><br />
-            <input type="text" name="texte"><br /><br />
-            <input type="submit" name="ajouter" value="Ajouter">
+            <label><p class="add_categorie_admin">Ajouter une catégorie ici :</p></label><br /><br />
+            <input class="zonetxt_admin"type="text" name="texte"><br /><br />
+            <input class="button-admin" type="submit" name="ajouter" value="Ajouter">
         </form>
         <?php
         // Si on appuie sur le bouton ajouter
@@ -74,17 +74,17 @@ class Admin extends bdd
         $stmt2->execute();
         $result2 = $stmt2->fetchAll();
         // Boucle pour afficher les catégories
-        echo  '<br/>' . '<br/>' . 'Catégories :' . '<br/>';
+        echo  '<br/>' . '<br/>' . '<h2 class="h2_admin">Catégories :</h2>' . '<br/>';
         foreach ($result2 as $value) {
             $idget = $value[0];
 
-            echo '<br/>' . $value['nom'] . '<br/>';
+            echo '<br/><p class="categorie_admin">' . ucfirst(strtolower($value['nom'])) . '</p><br/>';
             // Ici on peut modifier ou supprimer la catégorie + redirection vers une autre page
             echo '
             
             <li>
-            <a href="../Modifier_Catégorie/modifier_categorie.php?id=' . $idget . '">Modifier |</a>
-            <a href="../Supprimer/supprimer.php?id=' . $idget . '">Supprimer</a>
+            <a class="href_admin" href="../Modifier_Catégorie/modifier_categorie.php?id=' . $idget . '">Modifier |</a>
+            <a class="href_admin" href="../Supprimer/supprimer.php?id=' . $idget . '">Supprimer</a>
             </li><br/><br/>';
         }
     }
@@ -96,27 +96,25 @@ class Admin extends bdd
         $stmt->execute();
         $result = $stmt->fetchAll();
 
-        echo '<table>' . '<thead>';
-        foreach ($result as $key => $value) {
-            if ($key == 5) {
-                break;
-            } else {
-                echo '<th>' . $key . '</th>';
-            }
-        }
-        echo '</thead>' . '<tbody>';
+        echo '<table class="whole_table_admin">' . '<thead>';
+        echo '<th class="table_admin"> ID </th>';
+        echo '<th class="table_admin"> LOGIN </th>';
+        echo '<th class="table_admin"> USERNAME </th>';
+        echo '<th class="table_admin"> PASSWORD </th>';
+        echo '<th class="table_admin"> E-MAIL </th>';
+        echo '<th class="table_admin"> ID DROITS </th>';
+        echo '<tbody>';
         foreach ($result as $value) {
         ?>
             <tr>
-                <td name="id"><?php echo '<a href="../Modifier_Utilisateur/modifier_utilisateur.php?id=' . $value[0] . '">' . 'Modifier' . '</a>'; ?></td>
-                <td name="id"><?php echo $value[0]; ?></td>
-                <td name="login"><?php echo $value[1]; ?></td>
-                <td name="username"><?php echo $value[2]; ?></td>
-                <td name="mdp"><?php echo $value[3]; ?></td>
-                <td name="email"><?php echo $value[4]; ?></td>
-                <td name="id_droits"><?php echo $value[5]; ?></td>
-                <td name="id"><?php echo '<a href="../Supprimer/supprimer.php?id=' . $value[0] . '">' . 'Supprimer' . '</a>'; ?></td>
-
+                <td class="table_admin" name="id"><?php echo $value[0]; ?></td>
+                <td class="table_admin" name="login"><?php echo $value[1]; ?></td>
+                <td class="table_admin" name="username"><?php echo $value[2]; ?></td>
+                <td class="table_admin" name="mdp"><?php echo $value[3]; ?></td>
+                <td class="table_admin" name="email"><?php echo $value[4]; ?></td>
+                <td class="table_admin" name="id_droits"><?php echo $value[5]; ?></td>
+                <td class="table_admin" name="id"><?php echo '<a class="href_admin" href="../Modifier_Utilisateur/modifier_utilisateur.php?id=' . $value[0] . '">' . 'Modifier' . '</a>'; ?></td>
+                <td class="table_admin" name="id"><?php echo '<a class="href_admin" href="../Supprimer/supprimer.php?id=' . $value[0] . '">' . 'Supprimer' . '</a>'; ?></td>
             </tr>
 <?php
         }

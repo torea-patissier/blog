@@ -4,9 +4,7 @@ require_once("../html_partials/header.php");
 include "../Classes/creer-article.class.php";
 $pageCreate = new Article;
 ?>
-
-<br />
-
+<main>
 <form action="creer-article.php" method="POST">
     <div class="paginationArticles1">
 <label>Quelle est la catégorie de votre article ?</label><br /><br />
@@ -19,12 +17,10 @@ $pageCreate = new Article;
 <input class ="buttonCommentaireArticle"type="submit" name="publier">
 </div>
 </form>
-
-
 <?php 
-
-
 if(isset($_POST["publier"]) && !empty($_POST["newarticle"])){
     $pageCreate->CreateArticle();
-
 }
+?>
+</main>
+<?php require_once('../html_partials/footer.php');?>

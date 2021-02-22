@@ -12,63 +12,49 @@
     if ($id_droits == 1337) {
 
         echo '
-    <ul class="footer">
-        <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-        <a class="navlink" href="../Article/article.php">Article</a>
-        <a class="navlink" href="../Créer Article/creer-article.php">Créer un article</a>
-        <a class="navlink" href="../Profil/profil.php">Profil</a>
-        <a class="navlink" href="../Admin/admin.php">Admin</a>
+    <ul class="list_footer">
+        <li class="liens.footer"><a class="href_footer" href="../index.php">Accueil</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Articles/articles.php?page=1">Articles</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Article/article.php">Article</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Créer Article/creer-article.php">Créer un article</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Profil/profil.php">Profil</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Admin/admin.php">Admin</a></li>
   </ul>
-        <div class="reseaux">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        </div>';
+        <p>Copyright Projet BLOG pour LaPlateforme.io</p>';
     }
     //J'affiche ici la navbar d'un modérateur
     elseif ($id_droits == 42) {
         echo '
-    <ul class="footer">
-        <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-        <a class="navlink" href="../Article/article.php">Article</a>
-        <a class="navlink" href="../Créer Article/creer-article.php">Créer un article</a>
-        <a class="navlink" href="../Profil/profil.php">Profil</a>
-    </ul>
-        <div class="reseaux">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        </div>';
+    <ul class="list_footer">
+        <li class="liens.footer"><a class="href_footer" href="../index.php">Accueil</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Articles/articles.php?page=1">Articles</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Article/article.php">Article</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Créer Article/creer-article.php">Créer un article</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Profil/profil.php">Profil</a></li>
+    </ul>  
+        <p>Copyright Projet BLOG pour LaPlateforme.io</p>';
     } // J'affiche ici la navbar d'un utilisateur
     elseif ($id_droits == 1) {
         echo '
-        <ul class="footer">
-        <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-        <a class="navlink" href="../Article/article.php">Article</a>
-        <a class="navlink" href="../Profil/profil.php">Profil</a>
+        <ul class="list_footer">
+        <li class="liens.footer"><a class="href_footer" href="../index.php">Accueil</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Articles/articles.php?page=1">Articles</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Article/article.php">Article</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Profil/profil.php">Profil</a></li>
         </ul>
-        <div class="reseaux">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        </div>';
+        
+        <p>Copyright Projet BLOG pour LaPlateforme.io</p>';
     } else {
         echo 
-        '<ul class="footer">
-        <a class="navlink" href="../index.php">Accueil</a>
-        <a class="navlink" href="../Articles/articles.php?page=1">Articles</a>
-        <a class="navlink" href="../Article/article.php">Article</a>
-        <a class="navlink" href="../Inscription/inscription.php">Inscription</a>
-        <a class="navlink" href="../Connexion/connexion.php">Connexion</a>
+        '<ul class="list_footer">
+        <li class="liens.footer"><a class="href_footer" href="../index.php">Accueil</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Articles/articles.php?page=1">Articles</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Article/article.php">Article</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Inscription/inscription.php">Inscription</a></li>
+        <li class="liens.footer"><a class="href_footer" href="../Connexion/connexion.php">Connexion</a></li>
         </ul>
-        <div class="reseaux">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        </div>'
+        
+        <p>Copyright Projet BLOG pour LaPlateforme.io</p>'
         ;
     }
     ?>
