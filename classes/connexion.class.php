@@ -17,7 +17,7 @@ class connexion extends bdd {
             if ($login == $logcheck and password_verify($password, $passcheck) == TRUE) { // Si Login et MDP == aux valeurs dans le tab alors co + Verify pass 
                 
                 $_SESSION['user'] = $result[$i];
-                header('location:http://localhost:8888/blog/Articles/articles.php?page=1');
+                header('location:http://localhost/blog/Articles/articles.php?page=1');
                 return [$login, $password]; // JA-MAIS DE EXIT DANS LA BOUCLE FOR
             }
         }

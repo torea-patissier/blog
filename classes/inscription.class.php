@@ -43,7 +43,7 @@ class inscription extends bdd {
                     $newuser->bindValue('email', $email, PDO::PARAM_STR);
                     $newuser->bindValue('chiffre', $chiffre, PDO::PARAM_INT);
                     $newuser->execute();
-                    header("Refresh: 0;url=http://localhost:8888/blog/Connexion/connexion.php");
+                    header("Refresh: 0;url=http://localhost/blog/Connexion/connexion.php");
                     return $newuser;
                     
                 }

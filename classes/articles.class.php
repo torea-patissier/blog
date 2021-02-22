@@ -120,7 +120,7 @@ class Articles extends bdd
                                 $idCategorie = $resultat['id'];
                                 $nom = $resultat['nom'];
                                 echo '<br />';
-                                echo '<li><a href="http://localhost:8888/blog/Filtre_Articles/filtre_articles.index.php?id=' . $idCategorie . '">' . $nom . '</a></li>';
+                                echo '<li><a href="http://localhost/blog/Filtre_Articles/filtre_articles.index.php?id=' . $idCategorie . '">' . $nom . '</a></li>';
                                 echo '<br />';
 
 
@@ -143,7 +143,7 @@ class Articles extends bdd
                                 $categorie = $key['article'];
                                 $id = $key['id'];
 
-                                echo '<div class="borderArticle1"><a href="http://localhost:8888/blog/Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
+                                echo '<div class="borderArticle1"><a href="http://localhost/blog/Article/article.php?id='.$id. '">'. $article. '</a>'.'<br />';
                                 echo $date.'<br />'.'<br /></div>';
                             }
                         }

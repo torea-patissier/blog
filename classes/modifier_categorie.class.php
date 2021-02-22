@@ -38,7 +38,7 @@ class ModifCat extends bdd
             $modif->bindValue('categorie', $categorie, PDO::PARAM_STR);
             $modif->bindValue('getId', $getId, PDO::PARAM_INT);
             $modif->execute();
-            header('location:http://localhost:8888/blog/Admin/admin.php');
+            header('location:http://localhost/blog/Admin/admin.php');
         }
     }
 }

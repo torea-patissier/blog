@@ -18,7 +18,7 @@ class Delete extends bdd{
             $supp2->execute();
             $supp3->execute();
 
-            header('location:http://localhost:8888/blog/Admin/admin.php');
+            header('location:http://localhost/blog/Admin/admin.php');
         
         }
         
